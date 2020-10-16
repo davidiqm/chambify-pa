@@ -1,4 +1,4 @@
-package Controlador;
+package Main;
 
 import Modelo.ConnectionBD;
 import Vista.Login;
