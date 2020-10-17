@@ -1,6 +1,6 @@
-package Vista.Login;
+package Views.Login;
 
-import Controlador.LoginController;
+import Controllers.LoginController;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,39 +10,37 @@ import javax.swing.JPanel;
  * @author Angel J Garcia Sandoval & David I Quime Montalvo
  */
 public class LoginPanel extends JPanel{
-    public LoginPanel(LoginFrame frame) {
-        components(frame);
+    public LoginPanel(LoginController controller) {
+        this.controller = controller;
+        components();
     }
     
-    protected void components(LoginFrame frame) {
-        actions(frame);
+    private void components() {
         labels();
         buttons();
     }
     
-    protected void labels() {
+    private void labels() {
         title = new JLabel("Chambify");
         title.setBounds(200, 100, 100, 25);
         super.add(title);
     }
     
-    protected void buttons() {
+    private void buttons() {
         testbtn = new JButton("Botón de prueba");
-        testbtn.setBounds(150, 150, 100, 25);
+        testbtn.setBounds(150, 150, 150, 25);
         testbtn.addActionListener(controller);
         super.add(testbtn);
         
         registerbtn = new JButton("Registrarse");
-        registerbtn.setBounds(150, 200, 100, 25);
+        registerbtn.setBounds(150, 200, 150, 25);
         registerbtn.addActionListener(controller);
         super.add(registerbtn);
     }
     
-    protected void actions(LoginFrame frame) {
-        controller = new LoginController(this, frame);
-    }
-    
+    //Variables
+    LoginController controller; 
+    //Swing components
     JLabel title;
     public JButton testbtn, registerbtn;
-    LoginController controller; 
 }
