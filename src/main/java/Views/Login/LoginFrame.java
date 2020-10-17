@@ -45,7 +45,7 @@ public class LoginFrame {
     //Variables
     LoginController controller;
     //Swing components
-    JFrame loginFrame;
+    public JFrame loginFrame;
     public LoginPanel loginPanel;
     public RegisterPanel registerPanel;
 }
