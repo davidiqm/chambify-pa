@@ -41,6 +41,6 @@ public class LoginPanel extends JPanel{
     //Variables
     LoginController controller; 
     //Swing components
-    JLabel title;
     public JButton testbtn, registerbtn;
+    JLabel title;
 }

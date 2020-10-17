@@ -36,6 +36,6 @@ public class RegisterPanel extends JPanel {
     //Variables
     LoginController controller;
     //Swing components
-    JButton back;
+    public JButton back;
     JLabel testlbl;
 }
