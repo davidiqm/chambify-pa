@@ -27,7 +27,7 @@ public class LoginFrame {
     }
     
     protected void panels() {
-        loginPanel = new LoginPanel();
+        loginPanel = new LoginPanel(this);
         loginPanel.setBounds(0, 0, 460, 720);
         loginPanel.setLayout(null);
         loginPanel.setVisible(true);
@@ -42,6 +42,6 @@ public class LoginFrame {
     
     //Swing components
     JFrame loginFrame;
-    LoginPanel loginPanel;
-    RegisterPanel registerPanel;
+    public LoginPanel loginPanel;
+    public RegisterPanel registerPanel;
 }

@@ -1,5 +1,6 @@
 package Vista.Login;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -12,6 +13,15 @@ public class RegisterPanel extends JPanel {
     }
 
     private void components() {
-        
+        labels();
     }
+    
+    private void labels() {
+        prueba = new JLabel("Un texto de prueba");
+        prueba.setBounds(150, 150, 100, 25);
+        //prueba.addActionListener(controller);
+        super.add(prueba);
+    }
+    
+    JLabel prueba;
 }
