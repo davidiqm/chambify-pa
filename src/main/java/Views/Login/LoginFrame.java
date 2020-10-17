@@ -1,5 +1,6 @@
-package Vista.Login;
+package Views.Login;
 
+import Controllers.LoginController;
 import javax.swing.*;
 
 /**
@@ -8,6 +9,7 @@ import javax.swing.*;
  */
 public class LoginFrame {
     public LoginFrame(){
+        controller = new LoginController(this);
         components();
     }
     
@@ -27,19 +29,21 @@ public class LoginFrame {
     }
     
     protected void panels() {
-        loginPanel = new LoginPanel(this);
+        loginPanel = new LoginPanel(controller);
         loginPanel.setBounds(0, 0, 460, 720);
         loginPanel.setLayout(null);
         loginPanel.setVisible(true);
         loginFrame.getContentPane().add(loginPanel);
         
-        registerPanel = new RegisterPanel();
+        registerPanel = new RegisterPanel(controller);
         registerPanel.setBounds(0, 0, 460, 720);
         registerPanel.setLayout(null);
         registerPanel.setVisible(false);
         loginFrame.getContentPane().add(registerPanel);
     }
     
+    //Variables
+    LoginController controller;
     //Swing components
     JFrame loginFrame;
     public LoginPanel loginPanel;
