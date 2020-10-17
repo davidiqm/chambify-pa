@@ -1,6 +1,7 @@
 package Main;
 
 import Controlador.Controller;
+import Controlador.LoginController;
 import Modelo.ConnectionBD;
 import Vista.Login.LoginFrame;
 
@@ -10,8 +11,6 @@ import Vista.Login.LoginFrame;
  */
 public class Configuration {
     public Configuration(){
-        ConnectionBD conn = new ConnectionBD();
         LoginFrame interfaz = new LoginFrame();
-        Controller controller = new Controller();
     }
 }
