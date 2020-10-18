@@ -2,6 +2,7 @@ package Views.User;
 
 import Controllers.UserController;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -39,46 +40,107 @@ public class UserFrame {
     
     private void panels() {
         sidebar = new JPanel();
-        sidebar.setBounds(0, 0, 250, 720);
+        sidebar.setBounds(0, 0, 200, 720);
         sidebar.setLayout(null);
-        sidebar.setBackground(new Color(64, 64, 64));
+        sidebar.setBackground(new Color(112, 112, 112));
         sidebar.setVisible(true);
         userFrame.getContentPane().add(sidebar);
         
-        header = new JPanel();
-        header.setBounds(250, 0, 1030, 60);
-        header.setLayout(null);
-        header.setBackground(new Color(64, 64, 64));
-        header.setVisible(true);
-        userFrame.getContentPane().add(header);
+        indexPanel = new IndexPanel(controller);
+        indexPanel.setBounds(200, 0, 1080, 720);
+        indexPanel.setLayout(null);
+        indexPanel.setVisible(true);
+        userFrame.getContentPane().add(indexPanel);
+        
+        searchPanel = new SearchPanel(controller);
+        searchPanel.setBounds(200, 0, 1080, 720);
+        searchPanel.setLayout(null);
+        searchPanel.setVisible(false);
+        userFrame.getContentPane().add(searchPanel);
+        
+        categoriesPanel = new CategoriesPanel(controller);
+        categoriesPanel.setBounds(200, 0, 1080, 720);
+        categoriesPanel.setLayout(null);
+        categoriesPanel.setVisible(false);
+        userFrame.getContentPane().add(categoriesPanel);
     }
     
     private void buttons() {
+        Font titleFont = new Font("Segoe UI", Font.BOLD, 22);
+        Font font = new Font("Segoe UI", Font.BOLD, 20);
+        
+        chambifyBtn = new JButton("Chambify");
+        chambifyBtn.setFont(titleFont);
+        chambifyBtn.setBounds(0, 128, 200, 52);
+        //chambifyBtn.setBackground(Color.WHITE);
+        chambifyBtn.setForeground(Color.WHITE);
+        chambifyBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        chambifyBtn.setBorderPainted(false);
+        chambifyBtn.setBorderPainted(false);
+        chambifyBtn.setContentAreaFilled(false);
+        chambifyBtn.addActionListener(controller);
+        sidebar.add(chambifyBtn);
+        
         indexBtn = new JButton("Inicio");
-        indexBtn.setBounds(0, 100, 250, 50);
-        indexBtn.setBackground(Color.WHITE);
+        indexBtn.setFont(font);
+        indexBtn.setBounds(0, 207, 200, 52);
+        //indexBtn.setBackground(Color.WHITE);
         indexBtn.setForeground(Color.WHITE);
+        indexBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         indexBtn.setBorderPainted(false);
         indexBtn.setBorderPainted(false);
         indexBtn.setContentAreaFilled(false);
         indexBtn.addActionListener(controller);
         sidebar.add(indexBtn);
+        
+        searchBtn = new JButton("Buscar");
+        searchBtn.setFont(font);
+        searchBtn.setBounds(0, 273, 200, 52);
+        //searchBtn.setBackground(Color.WHITE);
+        searchBtn.setForeground(Color.WHITE);
+        searchBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        searchBtn.setBorderPainted(false);
+        searchBtn.setBorderPainted(false);
+        searchBtn.setContentAreaFilled(false);
+        searchBtn.addActionListener(controller);
+        sidebar.add(searchBtn);
+        
+        categoriesBtn = new JButton("Categorias");
+        categoriesBtn.setFont(font);
+        categoriesBtn.setBounds(0, 338, 200, 52);
+        //categoriesBtn.setBackground(Color.WHITE);
+        categoriesBtn.setForeground(Color.WHITE);
+        categoriesBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        categoriesBtn.setBorderPainted(false);
+        categoriesBtn.setBorderPainted(false);
+        categoriesBtn.setContentAreaFilled(false);
+        categoriesBtn.addActionListener(controller);
+        sidebar.add(categoriesBtn);
+        
+        logoutBtn = new JButton("Salir");
+        logoutBtn.setFont(font);
+        logoutBtn.setBounds(0, 618, 200, 52);
+        //logoutBtn.setBackground(Color.WHITE);
+        logoutBtn.setForeground(Color.WHITE);
+        logoutBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        logoutBtn.setBorderPainted(false);
+        logoutBtn.setBorderPainted(false);
+        logoutBtn.setContentAreaFilled(false);
+        logoutBtn.addActionListener(controller);
+        sidebar.add(logoutBtn);
     }
     
     private void labels() {
-        welcomeLbl = new JLabel("Chambify");
-        welcomeLbl.setBounds(20, 20, 100, 25);
-        welcomeLbl.setFont(new Font("Arial", Font.PLAIN, 14));
-        welcomeLbl.setForeground(Color.white);
-        header.add(welcomeLbl);
     }
     
     //Variables
     UserController controller;
     //Swing components
-    JButton indexBtn;
-    JLabel welcomeLbl;
-    JPanel sidebar, header;
+    public JButton chambifyBtn, indexBtn, searchBtn, categoriesBtn, optionsBtn, logoutBtn;
+    public IndexPanel indexPanel;
+    public SearchPanel searchPanel;
+    public CategoriesPanel categoriesPanel;
     JFrame userFrame;
-    IndexPanel indexPanel;
+    JLabel welcomeLbl;
+    JPanel sidebar;
 }

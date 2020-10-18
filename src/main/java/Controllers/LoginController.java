@@ -9,7 +9,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author david
+ * @author Angel J Garcia Sandoval & David I Quime Montalvo
  */
 public class LoginController implements ActionListener {
     
