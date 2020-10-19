@@ -27,6 +27,7 @@ public class SQLUsuarios extends ConnectionBD {
         }
     }
 
+    
     public int usuarioExistente(String usr) {
         PreparedStatement ps = null;
         ResultSet rs = null;

@@ -6,8 +6,10 @@
 package Controllers;
 
 import Views.Admin.AdminAddNewUserFrame;
+import Views.Admin.AdminAddNewWorkerFrame;
 import Views.Admin.AdminFrame;
 import Views.Admin.AdminPanelUsers;
+import Views.Admin.AdminPanelWorkers;
 import java.awt.event.*;
 
 /**
@@ -29,12 +31,29 @@ public class AdminController implements ActionListener{
         }
     }
     
+    private void agregarTrabajador()
+    {
+        if (addNewWorkerFrame == null)
+        {
+            addNewWorkerFrame = new AdminAddNewWorkerFrame();
+            addNewWorkerFrame.initFrame();
+        }
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == adminFrame.users.agregarUsuario) 
         {
             agregarUsuario();
+        }
+        if (e.getSource() == adminFrame.workers.agregar)
+        {
+            agregarTrabajador();
+        }
+        if (e.getSource() == adminFrame.workers.findBtn)
+        {
+            AdminPanelWorkers.buscarTrabajador();
         }
         if (e.getSource() == adminFrame.sideBar.chambifyBtn)
         {
@@ -52,9 +71,11 @@ public class AdminController implements ActionListener{
         {
             adminFrame.users.setVisible(false);
             adminFrame.workers.setVisible(true);
+            AdminPanelWorkers.agregarDatos();
         }
     }
     
     public AdminFrame adminFrame;
     public static AdminAddNewUserFrame addNewUserFrame;
+    public static AdminAddNewWorkerFrame addNewWorkerFrame;
 }
