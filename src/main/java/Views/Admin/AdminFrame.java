@@ -5,6 +5,7 @@
  */
 package Views.Admin;
 
+import Controllers.AdminController;
 import java.awt.*;
 import javax.swing.*;
 
@@ -16,6 +17,7 @@ public class AdminFrame {
     
     public AdminFrame()
     {
+        controller = new AdminController(this);
         components();
     }
     
@@ -56,15 +58,16 @@ public class AdminFrame {
         header.setVisible(true);
         frame.getContentPane().add(header);
         
-        users = new AdminPanelUsers();
+        users = new AdminPanelUsers(controller);
         users.setBounds(250, 60, 1030, 720);
         users.setLayout(null);
         users.setVisible(true);
         frame.getContentPane().add(users);
     }
 
-    private JFrame frame;
-    private AdminPanelUsers users;
+    public JFrame frame;
+    public AdminPanelUsers users;
     private AdminSideBar sideBar;
     private AdminHeader header;
+    public AdminController controller;
 }
