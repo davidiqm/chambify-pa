@@ -8,6 +8,7 @@ import Models.SQLUsuarios;
 import Models.Usuarios;
 import Views.Admin.AdminFrame;
 import Views.User.UserFrame;
+import Views.Workers.WorkerFrame;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,7 +56,7 @@ public class LoginPanel extends JPanel{
     }
     
     private void buttons() {
-        testbtn = new JButton("Botón de prueba");
+        testbtn = new JButton("Iniciar Sesión");
         testbtn.setBounds(150, 220, 150, 25);
         testbtn.addActionListener(controller);
         super.add(testbtn);
@@ -95,6 +96,12 @@ public class LoginPanel extends JPanel{
                         break;
                     case 2:
                         UserFrame usuario = new UserFrame();
+                        break;
+                    case 3:
+                        WorkerFrame worker = new WorkerFrame();
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Error de credenciales");
                 }
             }else
             {
