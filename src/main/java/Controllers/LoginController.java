@@ -1,5 +1,6 @@
 package Controllers;
 
+import Views.Admin.AdminAddNewUserFrame;
 import Views.Login.LoginFrame;
 import Views.Login.LoginPanel;
 import Views.User.UserFrame;
@@ -21,13 +22,15 @@ public class LoginController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == loginFrame.loginPanel.testbtn) {
-            LoginPanel.autentificar();
-//            loginFrame.loginFrame.dispose();
+            int successful = loginFrame.loginPanel.autentificar();
+            
+            if (successful == 1) loginFrame.loginFrame.dispose();
 //            userFrame = new UserFrame();
 
         }
         
         if (e.getSource() == loginFrame.loginPanel.registerbtn) {
+            AdminAddNewUserFrame newUser = new AdminAddNewUserFrame();
             loginFrame.loginPanel.setVisible(false);
             loginFrame.registerPanel.setVisible(true);
         }

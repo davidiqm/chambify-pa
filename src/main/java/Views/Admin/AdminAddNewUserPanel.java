@@ -45,7 +45,7 @@ public class AdminAddNewUserPanel extends JPanel{
     private void buttons()
     {
         addBtn = new JButton();
-        addBtn.setBounds(55, 230, 90, 28);
+        addBtn.setBounds(55, 275, 90, 28);
         addBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         addBtn.setText("Agregar");
         addBtn.addActionListener(controller);
