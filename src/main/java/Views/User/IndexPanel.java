@@ -56,11 +56,11 @@ public class IndexPanel extends JPanel {
         
         recommendCard1 = new CardPanel(controller);
         recommendCard1.setLocation(51, 438);
-        super.add(topicCard1);
+        super.add(recommendCard1);
         
         recommendCard2 = new CardPanel(controller);
         recommendCard2.setLocation(391, 438);
-        super.add(topicCard2);
+        super.add(recommendCard2);
         
         recommendCard3 = new CardPanel(controller);
         recommendCard3.setLocation(731, 438);

@@ -18,6 +18,7 @@ public class LoginFrame {
         panels();
         initFrame();
     }
+
     
     protected void frame() {
         loginFrame = new JFrame("Iniciar Sesion");
@@ -26,7 +27,6 @@ public class LoginFrame {
         loginFrame.setLocationRelativeTo(null);
         loginFrame.getContentPane().setLayout(null);
         loginFrame.setResizable(false);
-        
     }
     
     private void initFrame()

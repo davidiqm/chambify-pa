@@ -16,7 +16,11 @@ public class Main {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             LoginFrame login = new LoginFrame();
+<<<<<<< HEAD
 //            AdminFrame  admin = new AdminFrame();
+=======
+            //AdminFrame  admin = new AdminFrame();
+>>>>>>> bbcbd7d... Tarjetas arregladas
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {

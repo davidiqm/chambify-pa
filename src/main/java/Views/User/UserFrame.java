@@ -34,7 +34,6 @@ public class UserFrame {
         userFrame.setLocationRelativeTo(null);
         userFrame.getContentPane().setLayout(null);
         userFrame.setResizable(false);
-        
     }
     
     private void initFrame()
@@ -85,6 +84,7 @@ public class UserFrame {
         chambifyBtn.setForeground(Color.WHITE);
         chambifyBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         chambifyBtn.setBorderPainted(false);
+        chambifyBtn.setFocusPainted(false);
         chambifyBtn.setContentAreaFilled(false);
         chambifyBtn.addActionListener(controller);
         sidebar.add(chambifyBtn);
@@ -109,6 +109,7 @@ public class UserFrame {
         searchBtn.setForeground(Color.WHITE);
         searchBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchBtn.setBorderPainted(false);
+        searchBtn.setFocusPainted(false);
         searchBtn.setContentAreaFilled(false);
         searchBtn.addActionListener(controller);
         sidebar.add(searchBtn);
@@ -120,6 +121,7 @@ public class UserFrame {
         categoriesBtn.setForeground(Color.WHITE);
         categoriesBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         categoriesBtn.setBorderPainted(false);
+        categoriesBtn.setFocusPainted(false);
         categoriesBtn.setContentAreaFilled(false);
         categoriesBtn.addActionListener(controller);
         sidebar.add(categoriesBtn);
@@ -131,6 +133,7 @@ public class UserFrame {
 	userBtn.setForeground(Color.WHITE);
 	userBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	userBtn.setBorderPainted(false);
+        userBtn.setFocusPainted(false);
 	userBtn.setContentAreaFilled(false);
 	userBtn.addActionListener(controller);
 	sidebar.add(userBtn);
@@ -142,6 +145,7 @@ public class UserFrame {
         logoutBtn.setForeground(Color.WHITE);
         logoutBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         logoutBtn.setBorderPainted(false);
+        logoutBtn.setFocusPainted(false);
         logoutBtn.setContentAreaFilled(false);
         logoutBtn.addActionListener(controller);
         sidebar.add(logoutBtn);
