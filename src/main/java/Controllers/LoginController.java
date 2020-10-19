@@ -31,8 +31,8 @@ public class LoginController implements ActionListener {
         
         if (e.getSource() == loginFrame.loginPanel.registerbtn) {
             AdminAddNewUserFrame newUser = new AdminAddNewUserFrame();
-            loginFrame.loginPanel.setVisible(false);
-            loginFrame.registerPanel.setVisible(true);
+//            loginFrame.loginPanel.setVisible(false);
+//            loginFrame.registerPanel.setVisible(true);
         }
         
         if (e.getSource() == loginFrame.registerPanel.back) {

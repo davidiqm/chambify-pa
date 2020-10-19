@@ -9,6 +9,8 @@ import Models.Usuarios;
 import Views.Admin.AdminFrame;
 import Views.User.UserFrame;
 import Views.Workers.WorkerFrame;
+import java.awt.Color;
+import java.awt.Font;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,21 +27,43 @@ public class LoginPanel extends JPanel{
     }
     
     private void components() {
+        panel();
         labels();
         buttons();
         textFields();
     }
     
+    private void panel() {
+        this.setBackground(new Color(123, 123, 123));
+    }
+    
     private void labels() {
         title = new JLabel("Chambify");
-        title.setBounds(200, 100, 100, 25);
+        title.setBounds(152, 115, 200, 50);
+        title.setLayout(null);
+        title.setForeground(Color.white);
+        title.setFont(new Font("Segoe UI", Font.BOLD, 36));
         super.add(title);
+        
+        userLbl = new JLabel("Usuario");
+        userLbl.setBounds(130, 214, 50, 20);
+        userLbl.setLayout(null);
+        userLbl.setForeground(Color.white);
+        userLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        super.add(userLbl);
+        
+        passwordLbl = new JLabel("Contraseña");
+        passwordLbl.setBounds(130, 282 , 50, 20);
+        passwordLbl.setLayout(null);
+        passwordLbl.setForeground(Color.white);
+        passwordLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        super.add(passwordLbl);
     }
     
     private void textFields()
     {
         usuarioTx = new JTextField();
-        usuarioTx.setBounds(150, 150, 200, 30);
+        usuarioTx.setBounds(130, 236, 200, 25);
 //        usuarioTx.setOpaque(false);
 //        usuarioTx.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         usuarioTx.setHorizontalAlignment(JTextField.CENTER);
@@ -47,7 +71,7 @@ public class LoginPanel extends JPanel{
         super.add(usuarioTx);
         
         contrasenaTx = new JPasswordField();
-        contrasenaTx.setBounds(150, 185, 200, 30);
+        contrasenaTx.setBounds(130, 304, 200, 25);
 //        contrasenaTx.setOpaque(false);
 //        contrasenaTx.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         contrasenaTx.setHorizontalAlignment(JTextField.CENTER);
@@ -57,14 +81,14 @@ public class LoginPanel extends JPanel{
     
     private void buttons() {
         testbtn = new JButton("Iniciar Sesión");
-        testbtn.setBounds(150, 220, 150, 25);
+        testbtn.setBounds(136, 379, 189, 25);
         testbtn.addActionListener(controller);
         super.add(testbtn);
         
-        registerbtn = new JButton("Registrarse");
-        registerbtn.setBounds(150, 300, 150, 25);
-        registerbtn.addActionListener(controller);
-        super.add(registerbtn);
+//        registerbtn = new JButton("Registrarse");
+//        registerbtn.setBounds(150, 300, 150, 25);
+//        registerbtn.addActionListener(controller);
+//        super.add(registerbtn);
     }
     
     public int autentificar() {
@@ -120,5 +144,5 @@ public class LoginPanel extends JPanel{
     public JButton testbtn, registerbtn;
     private static JTextField usuarioTx;
     private static JPasswordField  contrasenaTx;
-    JLabel title;
+    JLabel title, userLbl, passwordLbl;
 }
