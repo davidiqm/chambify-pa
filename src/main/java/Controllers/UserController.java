@@ -24,26 +24,37 @@ public class UserController implements ActionListener {
             userFrame.indexPanel.setVisible(true);
             userFrame.searchPanel.setVisible(false);
             userFrame.categoriesPanel.setVisible(false);
-        }
+	    userFrame.userPanel.setVisible(false);
+	}
         
         if (e.getSource() == userFrame.indexBtn) {
             userFrame.indexPanel.setVisible(true);
             userFrame.searchPanel.setVisible(false);
             userFrame.categoriesPanel.setVisible(false);
+	    userFrame.userPanel.setVisible(false);
         }
         
         if (e.getSource() == userFrame.searchBtn) {
             userFrame.indexPanel.setVisible(false);
             userFrame.searchPanel.setVisible(true);
             userFrame.categoriesPanel.setVisible(false);
+	    userFrame.userPanel.setVisible(false);
         }
         
         if (e.getSource() == userFrame.categoriesBtn) {
             userFrame.indexPanel.setVisible(false);
             userFrame.searchPanel.setVisible(false);
             userFrame.categoriesPanel.setVisible(true);
+	    userFrame.userPanel.setVisible(false);
         }
-        
+       
+	if (e.getSource() == userFrame.userBtn) {
+            userFrame.indexPanel.setVisible(false);
+	    userFrame.searchPanel.setVisible(false);
+	    userFrame.categoriesPanel.setVisible(false);
+	    userFrame.userPanel.setVisible(true);
+	}
+
         if (e.getSource() == userFrame.logoutBtn) {
             logoutDialog();
         }

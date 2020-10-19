@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,6 +21,7 @@ public class CategoriesPanel extends JPanel {
     private void components() {
         panels();
         labels();
+        textFields();
     }
     
     private void panels() {
@@ -39,11 +41,23 @@ public class CategoriesPanel extends JPanel {
         headerLbl.setFont(font);
         headerLbl.setForeground(Color.white);
         headerPanel.add(headerLbl);
+        
+        categoriesLbl = new JLabel("Buscar categoría");
+        categoriesLbl.setBounds(51, 95, 150, 27);
+        categoriesLbl.setFont(font);
+        super.add(categoriesLbl);
+    }
+    
+    private void textFields() {
+        searchCategoryTxtF = new JTextField();
+        searchCategoryTxtF.setBounds(51, 128, 570, 25);
+        super.add(searchCategoryTxtF);
     }
     
     //Vars
     UserController controller;
     //Swing components
-    JLabel headerLbl;
+    JLabel headerLbl, categoriesLbl;
     JPanel headerPanel, topicPanel;
+    JTextField searchCategoryTxtF;
 }
