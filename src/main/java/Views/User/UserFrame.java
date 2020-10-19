@@ -1,9 +1,7 @@
 package Views.User;
 
 import Controllers.UserController;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Font;
+import java.awt.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -88,8 +86,9 @@ public class UserFrame {
         indexBtn.setForeground(Color.WHITE);
         indexBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         indexBtn.setBorderPainted(false);
-        indexBtn.setBorderPainted(false);
+        indexBtn.setFocusPainted(false);
         indexBtn.setContentAreaFilled(false);
+        indexBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         indexBtn.addActionListener(controller);
         sidebar.add(indexBtn);
         
