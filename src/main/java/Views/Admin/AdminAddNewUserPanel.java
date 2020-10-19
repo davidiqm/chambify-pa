@@ -55,39 +55,52 @@ public class AdminAddNewUserPanel extends JPanel{
     private void textFields()
     {
         txUser = new JTextField();
-        txUser.setBounds(85, 30, 100, 25);
+        txUser.setBounds(55, 30, 100, 25);
         super.add(txUser);
-//        userTp = new TextPrompt("Usuario", txUser);
-//        userTp.changeAlpha(0.75f);
-//        userTp.changeStyle(Font.ITALIC);
+        userTp = new TextPrompt("Usuario", txUser);
+        userTp.changeAlpha(0.75f);
+        userTp.changeStyle(Font.ITALIC);
         
         txName = new JTextField();
-        txName.setBounds(85, 150, 100, 25);
+        txName.setBounds(55, 150, 100, 25);
         super.add(txName);
-//        nameTp = new TextPrompt("Nombre", txName);
-//        nameTp.changeAlpha(0.75f);
-//        nameTp.changeStyle(Font.ITALIC);
+        nameTp = new TextPrompt("Nombre", txName);
+        nameTp.changeAlpha(0.75f);
+        nameTp.changeStyle(Font.ITALIC);
         
         txEmail = new JTextField();
-        txEmail.setBounds(85, 190, 100, 25);
+        txEmail.setBounds(55, 190, 100, 25);
         super.add(txEmail);
-//        emailTp = new TextPrompt("Correo", txEmail);
-//        emailTp.changeAlpha(0.75f);
-//        emailTp.changeStyle(Font.ITALIC);
+        emailTp = new TextPrompt("Correo", txEmail);
+        emailTp.changeAlpha(0.75f);
+        emailTp.changeStyle(Font.ITALIC);
+        
+        txId_tipo = new JTextField();
+        txId_tipo.setBounds(55, 230, 100, 25);
+        super.add(txId_tipo);
+        id_TipoTp = new TextPrompt("Tipo de Usuario", txId_tipo);
+        id_TipoTp.changeAlpha(0.75f);
+        id_TipoTp.changeStyle(Font.ITALIC);
         
         txPassword = new JPasswordField();
-        txPassword.setBounds(85, 70, 100, 25);
+        txPassword.setBounds(55, 70, 100, 25);
         txPassword.setDocument(new LimiteDeCaracteres(10));
         super.add(txPassword);
+        passTp = new TextPrompt("Contraseña", txPassword);
+        passTp.changeAlpha(0.75f);
+        passTp.changeStyle(Font.ITALIC);
 
         txPassword2 = new JPasswordField();
-        txPassword2.setBounds(85, 110, 100, 25);
+        txPassword2.setBounds(55, 110, 100, 25);
         txPassword2.setDocument(new LimiteDeCaracteres(10));
         super.add(txPassword2);
+        pass2Tp = new TextPrompt("Repetir Contraseña", txPassword2);
+        pass2Tp.changeAlpha(0.75f);
+        pass2Tp.changeStyle(Font.ITALIC);
         
     }
     
-    public void limpiar() {
+    public static void limpiar() {
         txPassword2.setText(null);
         txPassword.setText(null);
         txEmail.setText(null);
@@ -95,7 +108,7 @@ public class AdminAddNewUserPanel extends JPanel{
         txUser.setText(null);
     }
     
-    public void registrarse() {
+    public static void registrarse() {
         SQLUsuarios modeloSQL = new SQLUsuarios();
         Usuarios mod = new Usuarios();
         String contra = new String(txPassword.getPassword());
@@ -114,7 +127,7 @@ public class AdminAddNewUserPanel extends JPanel{
                         mod.setContrasena(nuevaContra);
                         mod.setNombre(txName.getText());
                         mod.setCorreo(txEmail.getText());
-                        mod.setId_tipo(1);
+                        mod.setId_tipo(Integer.parseInt(txId_tipo.getText()));
 
                         if (modeloSQL.registrar(mod)) {
                             JOptionPane.showMessageDialog(null, "Registro Completado");
@@ -136,8 +149,8 @@ public class AdminAddNewUserPanel extends JPanel{
     
     private JLabel addNewUserlb;
     public JButton addBtn;
-    private JTextField txUser, txName, txEmail;
-    private JPasswordField txPassword, txPassword2;
-    private TextPrompt userTp, nameTp, emailTp;
+    static private JTextField txUser, txName, txEmail, txId_tipo;
+    static private JPasswordField txPassword, txPassword2;
+    private TextPrompt userTp, nameTp, emailTp, passTp, pass2Tp, id_TipoTp;
     public AdminAddNewUserController controller;
 }

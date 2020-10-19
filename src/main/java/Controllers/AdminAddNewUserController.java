@@ -26,7 +26,7 @@ public class AdminAddNewUserController implements ActionListener{
         
         if (e.getSource() == addNewUserFrame.addNewUserPanel.addBtn)
         {
-            addUser.registrarse();
+            AdminAddNewUserPanel.registrarse();
         }
     }
     

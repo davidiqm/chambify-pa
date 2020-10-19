@@ -33,7 +33,7 @@ public class AdminAddNewUserFrame{
     private void frame()
     {
         frame = new JFrame("Agregar Usuario");
-        frame.setSize(200, 300);
+        frame.setSize(200, 350);
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setLayout(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
