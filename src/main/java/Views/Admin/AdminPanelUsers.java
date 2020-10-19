@@ -5,6 +5,7 @@
  */
 package Views.Admin;
 
+import Controllers.AdminController;
 import Models.MiModelo;
 import java.awt.*;
 import javax.swing.*;
@@ -15,8 +16,9 @@ import javax.swing.*;
  */
 public class AdminPanelUsers extends JPanel{
     
-    public AdminPanelUsers()
+    public AdminPanelUsers(AdminController controller)
     {
+        this.controller = controller;
         complements();
         buttons();
     }
@@ -50,12 +52,13 @@ public class AdminPanelUsers extends JPanel{
         agregarUsuario.setText("Agregar");
         agregarUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         agregarUsuario.setBounds(10, 320, 75, 25);
-        //agregarUsuario.addActionListener(this);
+        agregarUsuario.addActionListener(controller);
         super.add(agregarUsuario);
     }
     
     private JScrollPane barras;
     private MiModelo modelo;
     private JTable tabla;
-    private JButton agregarUsuario;
+    public JButton agregarUsuario;
+    AdminController controller;
 }
