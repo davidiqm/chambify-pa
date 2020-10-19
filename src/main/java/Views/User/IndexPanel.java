@@ -30,11 +30,41 @@ public class IndexPanel extends JPanel {
         headerPanel.setVisible(true);
         super.add(headerPanel);
         
-        topicPanel = new JPanel();
-        topicPanel.setBounds(51, 236, 962, 236);
-        topicPanel.setLayout(null);
-        topicPanel.setVisible(true);
-        super.add(topicPanel);
+//        topicPanel = new JPanel();
+//        topicPanel.setBounds(51, 143, 962, 236);
+//        topicPanel.setLayout(null);
+//        topicPanel.setVisible(true);
+//        super.add(topicPanel);
+//
+//	sectionPanel = new JPanel();
+//	sectionPanel.setBounds(51, 438, 962, 236);
+//	sectionPanel.setLayout(null);
+//	sectionPanel.setVisible(true);
+//	super.add(sectionPanel);
+        
+        topicCard1 = new CardPanel(controller);
+        topicCard1.setLocation(51, 143);
+        super.add(topicCard1);
+        
+        topicCard2 = new CardPanel(controller);
+        topicCard2.setLocation(391, 143);
+        super.add(topicCard2);
+        
+        topicCard3 = new CardPanel(controller);
+        topicCard3.setLocation(731, 143);
+        super.add(topicCard3);
+        
+        recommendCard1 = new CardPanel(controller);
+        recommendCard1.setLocation(51, 438);
+        super.add(topicCard1);
+        
+        recommendCard2 = new CardPanel(controller);
+        recommendCard2.setLocation(391, 438);
+        super.add(topicCard2);
+        
+        recommendCard3 = new CardPanel(controller);
+        recommendCard3.setLocation(731, 438);
+        super.add(recommendCard3);
     }
     
     private void labels() {
@@ -63,5 +93,6 @@ public class IndexPanel extends JPanel {
     UserController controller;
     //Swing components
     JLabel headerLbl, topicLbl, recommendLbl;
-    JPanel headerPanel, topicPanel;
+    JPanel headerPanel, topicPanel, sectionPanel;
+    public CardPanel topicCard1, topicCard2, topicCard3, recommendCard1, recommendCard2, recommendCard3;
 }

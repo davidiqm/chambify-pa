@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,6 +21,7 @@ public class SearchPanel extends JPanel {
     private void components() {
         panels();
         labels();
+        textFields();
     }
     
     private void panels() {
@@ -39,11 +41,28 @@ public class SearchPanel extends JPanel {
         headerLbl.setFont(font);
         headerLbl.setForeground(Color.white);
         headerPanel.add(headerLbl);
+        
+        searchLbl = new JLabel("¡Busca lo que necesites!");
+        searchLbl.setBounds(51, 95, 300, 27);
+        searchLbl.setFont(font);
+        super.add(searchLbl);
+        
+        resultsLbl = new JLabel("Resultados...");
+        resultsLbl.setBounds(51, 200, 108, 27);
+        resultsLbl.setFont(font);
+        super.add(resultsLbl);
+    }
+    
+    private void textFields() {
+        searchTxtF = new JTextField();
+        searchTxtF.setBounds(51, 128, 570, 25);
+        super.add(searchTxtF);
     }
     
     //Vars
     UserController controller;
     //Swing components
-    JLabel headerLbl;
+    JLabel headerLbl, searchLbl, resultsLbl;
     JPanel headerPanel, topicPanel;
+    JTextField searchTxtF;
 }

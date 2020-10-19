@@ -61,6 +61,12 @@ public class UserFrame {
         categoriesPanel.setLayout(null);
         categoriesPanel.setVisible(false);
         userFrame.getContentPane().add(categoriesPanel);
+	
+	userPanel = new UserPanel(controller);
+	userPanel.setBounds(200, 0, 1080, 720);
+	userPanel.setLayout(null);
+	userPanel.setVisible(false);
+	userFrame.getContentPane().add(userPanel);
     }
     
     private void buttons() {
@@ -73,7 +79,6 @@ public class UserFrame {
         //chambifyBtn.setBackground(Color.WHITE);
         chambifyBtn.setForeground(Color.WHITE);
         chambifyBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        chambifyBtn.setBorderPainted(false);
         chambifyBtn.setBorderPainted(false);
         chambifyBtn.setContentAreaFilled(false);
         chambifyBtn.addActionListener(controller);
@@ -99,7 +104,6 @@ public class UserFrame {
         searchBtn.setForeground(Color.WHITE);
         searchBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchBtn.setBorderPainted(false);
-        searchBtn.setBorderPainted(false);
         searchBtn.setContentAreaFilled(false);
         searchBtn.addActionListener(controller);
         sidebar.add(searchBtn);
@@ -111,10 +115,20 @@ public class UserFrame {
         categoriesBtn.setForeground(Color.WHITE);
         categoriesBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         categoriesBtn.setBorderPainted(false);
-        categoriesBtn.setBorderPainted(false);
         categoriesBtn.setContentAreaFilled(false);
         categoriesBtn.addActionListener(controller);
         sidebar.add(categoriesBtn);
+        
+        userBtn = new JButton("Cuenta");
+	userBtn.setFont(font);
+	userBtn.setBounds(0, 402, 200, 52);
+	//userBtn.setBackground(Color.WHITE);
+	userBtn.setForeground(Color.WHITE);
+	userBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	userBtn.setBorderPainted(false);
+	userBtn.setContentAreaFilled(false);
+	userBtn.addActionListener(controller);
+	sidebar.add(userBtn);
         
         logoutBtn = new JButton("Salir");
         logoutBtn.setFont(font);
@@ -122,7 +136,6 @@ public class UserFrame {
         //logoutBtn.setBackground(Color.WHITE);
         logoutBtn.setForeground(Color.WHITE);
         logoutBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        logoutBtn.setBorderPainted(false);
         logoutBtn.setBorderPainted(false);
         logoutBtn.setContentAreaFilled(false);
         logoutBtn.addActionListener(controller);
@@ -135,10 +148,11 @@ public class UserFrame {
     //Variables
     UserController controller;
     //Swing components
-    public JButton chambifyBtn, indexBtn, searchBtn, categoriesBtn, optionsBtn, logoutBtn;
+    public JButton chambifyBtn, indexBtn, searchBtn, categoriesBtn, optionsBtn, userBtn, logoutBtn;
     public IndexPanel indexPanel;
     public SearchPanel searchPanel;
     public CategoriesPanel categoriesPanel;
+    public UserPanel userPanel;
     JFrame userFrame;
     JLabel welcomeLbl;
     JPanel sidebar;
