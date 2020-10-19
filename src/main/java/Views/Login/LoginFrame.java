@@ -16,6 +16,7 @@ public class LoginFrame {
     protected void components() {
         frame();
         panels();
+        initFrame();
     }
     
     protected void frame() {
@@ -25,9 +26,13 @@ public class LoginFrame {
         loginFrame.setLocationRelativeTo(null);
         loginFrame.getContentPane().setLayout(null);
         loginFrame.setResizable(false);
-        loginFrame.setVisible(true);
+        
     }
     
+    private void initFrame()
+    {
+        loginFrame.setVisible(true);
+    }
     protected void panels() {
         loginPanel = new LoginPanel(controller);
         loginPanel.setBounds(0, 0, 460, 720);
