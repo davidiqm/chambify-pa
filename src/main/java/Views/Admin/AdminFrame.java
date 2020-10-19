@@ -44,7 +44,7 @@ public class AdminFrame {
     }
     private void panel()
     {
-        sideBar = new AdminSideBar();
+        sideBar = new AdminSideBar(controller);
         sideBar.setBounds(0, 0, 250, 720);
         sideBar.setLayout(null);
         sideBar.setBackground(new Color(64, 64, 64));
@@ -63,11 +63,18 @@ public class AdminFrame {
         users.setLayout(null);
         users.setVisible(true);
         frame.getContentPane().add(users);
+        
+        workers = new AdminPanelWorkers(controller);
+        workers.setBounds(250, 60, 1030, 720);
+        workers.setLayout(null);
+        workers.setVisible(false);
+        frame.getContentPane().add(workers);
     }
 
     public JFrame frame;
     public AdminPanelUsers users;
-    private AdminSideBar sideBar;
+    public AdminSideBar sideBar;
     private AdminHeader header;
     public AdminController controller;
+    public AdminPanelWorkers workers;
 }

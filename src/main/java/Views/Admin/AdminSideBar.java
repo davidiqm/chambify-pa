@@ -5,6 +5,7 @@
  */
 package Views.Admin;
 
+import Controllers.AdminController;
 import java.awt.*;
 import javax.swing.*;
 
@@ -13,8 +14,9 @@ import javax.swing.*;
  * @author Angel
  */
 public class AdminSideBar extends JPanel{
-    public AdminSideBar()
+    public AdminSideBar(AdminController controller)
     {
+        this.controller = controller;
         components();
     }
     
@@ -25,27 +27,73 @@ public class AdminSideBar extends JPanel{
     
     private void buttons()
     {
+        Font titleFont = new Font("Segoe UI", Font.BOLD, 22);
+        Font font = new Font("Segoe UI", Font.BOLD, 20);
+        
+//        usersBtn = new JButton("Usuarios");
+//        usersBtn.setForeground(Color.WHITE);
+//        usersBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+//        usersBtn.setBounds(0, 100, 250, 50);
+//        usersBtn.setBorderPainted(false);
+//        usersBtn.setFocusPainted(false);
+//        usersBtn.setContentAreaFilled(false);
+////        usuariosBtn.addActionListener(this);
+//        super.add(usersBtn);
+        
         usersBtn = new JButton("Usuarios");
+        usersBtn.setFont(font);
+        usersBtn.setBounds(20, 207, 200, 52);
+        //indexBtn.setBackground(Color.WHITE);
         usersBtn.setForeground(Color.WHITE);
         usersBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        usersBtn.setBounds(0, 100, 250, 50);
         usersBtn.setBorderPainted(false);
         usersBtn.setFocusPainted(false);
         usersBtn.setContentAreaFilled(false);
-//        usuariosBtn.addActionListener(this);
+        usersBtn.addActionListener(controller);
         super.add(usersBtn);
         
+//        workersBtn = new JButton("Trabajadores");
+//        workersBtn.setForeground(Color.WHITE);
+//        workersBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+//        workersBtn.setBounds(0, 160, 250, 50);
+//        workersBtn.setBorderPainted(false);
+//        workersBtn.setFocusPainted(false);
+//        workersBtn.setContentAreaFilled(false);
+////        usuariosBtn.addActionListener(this);
+//        super.add(workersBtn);
+        
         workersBtn = new JButton("Trabajadores");
+        workersBtn.setFont(font);
+        workersBtn.setBounds(20, 273, 200, 52);
+        //categoriesBtn.setBackground(Color.WHITE);
         workersBtn.setForeground(Color.WHITE);
         workersBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        workersBtn.setBounds(0, 160, 250, 50);
         workersBtn.setBorderPainted(false);
         workersBtn.setFocusPainted(false);
         workersBtn.setContentAreaFilled(false);
-//        usuariosBtn.addActionListener(this);
+        workersBtn.addActionListener(controller);
         super.add(workersBtn);
+        
+        chambifyBtn = new JButton("Chambify");
+        chambifyBtn.setFont(titleFont);
+        chambifyBtn.setBounds(20, 128, 200, 52);
+        //chambifyBtn.setBackground(Color.WHITE);
+        chambifyBtn.setForeground(Color.WHITE);
+        chambifyBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        chambifyBtn.setBorderPainted(false);
+        chambifyBtn.setFocusPainted(false);
+        chambifyBtn.setContentAreaFilled(false);
+        chambifyBtn.addActionListener(controller);
+        super.add(chambifyBtn);
     }
     
-    private JButton usersBtn, workersBtn;
+//    private void labels() {
+//        title = new JLabel("Chambify");
+//        title.setBounds(200, 100, 100, 25);
+//        super.add(title);
+//    }
     
+    public JButton usersBtn, workersBtn, chambifyBtn;
+    private JLabel title;
+    public AdminController controller;
 }

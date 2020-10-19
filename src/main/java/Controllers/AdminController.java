@@ -7,6 +7,7 @@ package Controllers;
 
 import Views.Admin.AdminAddNewUserFrame;
 import Views.Admin.AdminFrame;
+import Views.Admin.AdminPanelUsers;
 import java.awt.event.*;
 
 /**
@@ -34,6 +35,22 @@ public class AdminController implements ActionListener{
         if (e.getSource() == adminFrame.users.agregarUsuario) 
         {
             agregarUsuario();
+        }
+        if (e.getSource() == adminFrame.sideBar.chambifyBtn)
+        {
+            adminFrame.users.setVisible(true);
+            adminFrame.workers.setVisible(false);
+        }
+        if (e.getSource() == adminFrame.sideBar.usersBtn)
+        {
+            adminFrame.users.setVisible(true);
+            adminFrame.workers.setVisible(false);
+            AdminPanelUsers.agregarDatos();
+        }
+        if (e.getSource() == adminFrame.sideBar.workersBtn)
+        {
+            adminFrame.users.setVisible(false);
+            adminFrame.workers.setVisible(true);
         }
     }
     

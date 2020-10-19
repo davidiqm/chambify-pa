@@ -6,8 +6,14 @@
 package Views.Admin;
 
 import Controllers.AdminController;
+import Models.ConnectionBD;
 import Models.MiModelo;
 import java.awt.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import javax.swing.*;
 
 /**
@@ -26,6 +32,7 @@ public class AdminPanelUsers extends JPanel{
     private void complements()
     {
         table();
+        agregarDatos();
     }
     
     private void table()
@@ -33,12 +40,10 @@ public class AdminPanelUsers extends JPanel{
         barras = new JScrollPane(tabla);
         modelo = new MiModelo();
         modelo.addColumn("Usuario");
+        modelo.addColumn("Contrasena");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Apellido");
-        modelo.addColumn("Edad");
-        modelo.addColumn("Telefono");
-        modelo.addColumn("Ultima_vez");
-        modelo.addColumn("Creado_el");
+        modelo.addColumn("Correo");
+        modelo.addColumn("Tipo de Usuario");
         tabla = new JTable(modelo);
         JScrollPane scroll = new JScrollPane(tabla);
         tabla.setBounds(10, 20, 1000, 300);
@@ -56,9 +61,41 @@ public class AdminPanelUsers extends JPanel{
         super.add(agregarUsuario);
     }
     
+    public static void agregarDatos() {
+
+        try {
+            modelo = new MiModelo();
+            tabla.setModel(modelo);
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            ConnectionBD conexion = new ConnectionBD();
+            Connection cn = conexion.getConexion();
+            String sql = "SELECT usuario, contrasena, nombre, correo, id_tipo FROM usuarios";
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadCol = rsMd.getColumnCount();
+            modelo.addColumn("Usuario");
+            modelo.addColumn("Contrasena");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Correo");
+            modelo.addColumn("Tipo de Usuario");
+
+            while (rs.next()) {
+                Object[] datosFila = new Object[cantidadCol];
+                for (int i = 0; i < cantidadCol; i++) {
+                    datosFila[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(datosFila);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al conectar " + ex);
+        }
+    }
+    
     private JScrollPane barras;
-    private MiModelo modelo;
-    private JTable tabla;
+    private static MiModelo modelo;
+    private static JTable tabla;
     public JButton agregarUsuario;
     AdminController controller;
 }
