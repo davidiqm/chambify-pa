@@ -31,6 +31,42 @@ public class CategoriesPanel extends JPanel {
         headerPanel.setLayout(null);
         headerPanel.setVisible(true);
         super.add(headerPanel);
+        
+        categoryCardPanel1 = new CategoryCardPanel(controller, "Categoria1");
+        categoryCardPanel1.setLocation(51, 184);
+        super.add(categoryCardPanel1);
+        
+        categoryCardPanel2 = new CategoryCardPanel(controller, "Categoria2");
+        categoryCardPanel2.setLocation(399, 184);
+        super.add(categoryCardPanel2);
+        
+        categoryCardPanel3 = new CategoryCardPanel(controller, "Categoria3");
+        categoryCardPanel3.setLocation(747, 184);
+        super.add(categoryCardPanel3);
+        
+        categoryCardPanel4 = new CategoryCardPanel(controller, "Categoria4");
+        categoryCardPanel4.setLocation(51, 353);
+        super.add(categoryCardPanel4);
+        
+        categoryCardPanel5 = new CategoryCardPanel(controller, "Categoria5");
+        categoryCardPanel5.setLocation(399, 353);
+        super.add(categoryCardPanel5);
+        
+        categoryCardPanel6 = new CategoryCardPanel(controller, "Categoria6");
+        categoryCardPanel6.setLocation(747, 353);
+        super.add(categoryCardPanel6);
+        
+        categoryCardPanel7 = new CategoryCardPanel(controller, "Categoria7");
+        categoryCardPanel7.setLocation(51, 522);
+        super.add(categoryCardPanel7);
+        
+        categoryCardPanel8 = new CategoryCardPanel(controller, "Categoria8");
+        categoryCardPanel8.setLocation(399, 522);
+        super.add(categoryCardPanel8);
+        
+        categoryCardPanel9 = new CategoryCardPanel(controller, "Categoria9");
+        categoryCardPanel9.setLocation(747, 522);
+        super.add(categoryCardPanel9);
     }
     
     private void labels() {
@@ -60,4 +96,6 @@ public class CategoriesPanel extends JPanel {
     JLabel headerLbl, categoriesLbl;
     JPanel headerPanel, topicPanel;
     JTextField searchCategoryTxtF;
+    CategoryCardPanel categoryCardPanel1, categoryCardPanel2, categoryCardPanel3, categoryCardPanel4,
+            categoryCardPanel5, categoryCardPanel6, categoryCardPanel7, categoryCardPanel8, categoryCardPanel9;
 }
