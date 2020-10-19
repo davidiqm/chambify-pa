@@ -21,8 +21,10 @@ public class LoginController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == loginFrame.loginPanel.testbtn) {
-            loginFrame.loginFrame.dispose();
-            userFrame = new UserFrame();
+            LoginPanel.autentificar();
+//            loginFrame.loginFrame.dispose();
+//            userFrame = new UserFrame();
+
         }
         
         if (e.getSource() == loginFrame.loginPanel.registerbtn) {

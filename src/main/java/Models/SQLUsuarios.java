@@ -64,7 +64,7 @@ public class SQLUsuarios extends ConnectionBD {
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT u.id_usuario, u.usuario, u.contrasena, u.nombre, u.id_tipo, t.nombre FROM usuarios AS u INNER JOIN tipo_usuarios AS t ON u.id_tipo=t.id_tipo_usuario WHERE usuario = ?";
+        String sql = "SELECT u.id_usuario, u.usuario, u.contrasena, u.nombre, u.id_tipo, t.nombre FROM usuarios AS u INNER JOIN tipo_usuario AS t ON u.id_tipo=t.id WHERE usuario = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, usr.getUsuario());

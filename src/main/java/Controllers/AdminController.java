@@ -40,6 +40,7 @@ public class AdminController implements ActionListener{
         {
             adminFrame.users.setVisible(true);
             adminFrame.workers.setVisible(false);
+            AdminPanelUsers.agregarDatos();
         }
         if (e.getSource() == adminFrame.sideBar.usersBtn)
         {

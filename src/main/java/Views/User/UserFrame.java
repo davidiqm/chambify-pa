@@ -24,6 +24,7 @@ public class UserFrame {
         panels();
         buttons();
         labels();
+        initFrame();
     }
     
     private void frame() {
@@ -33,9 +34,13 @@ public class UserFrame {
         userFrame.setLocationRelativeTo(null);
         userFrame.getContentPane().setLayout(null);
         userFrame.setResizable(false);
-        userFrame.setVisible(true);
+        
     }
     
+    private void initFrame()
+    {
+        userFrame.setVisible(true);
+    }
     private void panels() {
         sidebar = new JPanel();
         sidebar.setBounds(0, 0, 200, 720);
