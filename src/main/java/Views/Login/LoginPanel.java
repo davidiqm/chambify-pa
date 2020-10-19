@@ -67,7 +67,7 @@ public class LoginPanel extends JPanel{
         super.add(registerbtn);
     }
     
-    public static void autentificar() {
+    public int autentificar() {
         SQLUsuarios modeloSQL = new SQLUsuarios();
         Usuarios modelo = new Usuarios();
         
@@ -93,13 +93,13 @@ public class LoginPanel extends JPanel{
                 {
                     case 1:
                         AdminFrame  admin = new AdminFrame();
-                        break;
+                        return 1;
                     case 2:
                         UserFrame usuario = new UserFrame();
-                        break;
+                        return 1;
                     case 3:
                         WorkerFrame worker = new WorkerFrame();
-                        break;
+                        return 1;
                     default:
                         JOptionPane.showMessageDialog(null, "Error de credenciales");
                 }
@@ -111,6 +111,7 @@ public class LoginPanel extends JPanel{
         {
             JOptionPane.showMessageDialog(null, "Campos vacios");
         }
+        return 0;
     }
     
     //Variables
