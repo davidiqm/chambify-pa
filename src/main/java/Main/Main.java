@@ -19,8 +19,7 @@ public class Main {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
             LoginFrame login = new LoginFrame();
-            //ConnectionBD conn = new ConnectionBD();
-            //Connection con = conn.getConexion();
+            //AdminFrame admin = new AdminFrame();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {

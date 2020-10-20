@@ -97,6 +97,18 @@ public class AdminSideBar extends JPanel{
         chambifyBtn.setContentAreaFilled(false);
         chambifyBtn.addActionListener(controller);
         super.add(chambifyBtn);
+
+        logoutBtn = new JButton("Salir");
+        logoutBtn.setFont(font);
+        logoutBtn.setBounds(20, 618, 200, 52);
+        //logoutBtn.setBackground(Color.WHITE);
+        logoutBtn.setForeground(Color.WHITE);
+        logoutBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        logoutBtn.setBorderPainted(false);
+        logoutBtn.setFocusPainted(false);
+        logoutBtn.setContentAreaFilled(false);
+        logoutBtn.addActionListener(controller);
+        super.add(logoutBtn);
     }
     
 //    private void labels() {
@@ -105,7 +117,7 @@ public class AdminSideBar extends JPanel{
 //        super.add(title);
 //    }
     
-    public JButton usersBtn, workersBtn, chambifyBtn, categoriaBtn;
+    public JButton usersBtn, workersBtn, chambifyBtn, categoriaBtn, logoutBtn;
     private JLabel title;
     public AdminController controller;
 }

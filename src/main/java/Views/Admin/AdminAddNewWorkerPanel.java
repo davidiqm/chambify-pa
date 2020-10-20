@@ -105,7 +105,7 @@ public class AdminAddNewWorkerPanel extends JPanel {
 
         txId_tipo = new JTextField();
         txId_tipo.setBounds(55, 180, 100, 25);
-        txId_tipo.setText("3");
+        txId_tipo.setText("2");
         txId_tipo.setEditable(false);
         super.add(txId_tipo);
         id_TipoTp = new TextPrompt("Tipo de Usuario", txId_tipo);
@@ -141,7 +141,7 @@ public class AdminAddNewWorkerPanel extends JPanel {
                     mod.setNombre(txName.getText());
                     mod.setEdad(txEdad.getText());
                     mod.setCorreo(txEmail.getText());
-                    mod.setId_tipo(3);
+                    mod.setId_tipo(2);
 
                     if (modeloSQL.registrar(mod)) {
                         JOptionPane.showMessageDialog(null, "Registro Completado");
@@ -172,7 +172,7 @@ public class AdminAddNewWorkerPanel extends JPanel {
                 mod.setNombre(txName.getText());
                 mod.setEdad(txEdad.getText());
                 mod.setCorreo(txEmail.getText());
-                mod.setId_tipo(3);
+                mod.setId_tipo(2);
                 mod.setId_trabajador(Integer.parseInt(txId_wrk.getText()));
 
                 if (modeloSQL.modificar(mod)) {

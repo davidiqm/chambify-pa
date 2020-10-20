@@ -6,6 +6,8 @@
 package Views.Admin;
 
 import Controllers.AdminController;
+import Models.Usuarios;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -15,8 +17,9 @@ import javax.swing.*;
  */
 public class AdminFrame {
     
-    public AdminFrame()
+    public AdminFrame(Usuarios mod)
     {
+        this.mod = mod;
         controller = new AdminController(this);
         components();
     }
@@ -51,7 +54,7 @@ public class AdminFrame {
         sideBar.setVisible(true);
         frame.getContentPane().add(sideBar); 
         
-        header = new AdminHeader();
+        header = new AdminHeader(mod);
         header.setBounds(250, 0, 1030, 60);
         header.setLayout(null);
         header.setBackground(new Color(64, 64, 64));
@@ -84,4 +87,5 @@ public class AdminFrame {
     public AdminController controller;
     public AdminPanelWorkers workers;
     public AdminPanelCategorias categorias;
+    private Usuarios mod;
 }

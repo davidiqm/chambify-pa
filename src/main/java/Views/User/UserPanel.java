@@ -17,7 +17,6 @@ public class UserPanel extends JPanel {
     public UserPanel(UserController controller, Usuarios mod) {
         this.controller = controller;
         components();
-		this.mod = mod;
 		userLbl.setText("¡Hola, " + mod.getNombre() + "!");
     }
     
