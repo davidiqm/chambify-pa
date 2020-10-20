@@ -1,7 +1,10 @@
 package Views.Login;
 
+import Controllers.AdminController;
 import Controllers.LoginController;
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -46,7 +49,7 @@ public class LoginFrame {
         registerPanel.setVisible(false);
         loginFrame.getContentPane().add(registerPanel);
     }
-    
+
     //Variables
     LoginController controller;
     //Swing components

@@ -1,5 +1,6 @@
 package Views.Login;
 
+import Controllers.AdminController;
 import Controllers.LoginController;
 import Models.Fecha;
 import Models.Hash;
@@ -58,6 +59,14 @@ public class LoginPanel extends JPanel{
         passwordLbl.setForeground(Color.white);
         passwordLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         super.add(passwordLbl);
+
+        registrarLbl = new JLabel("aquí.");
+        registrarLbl.setBounds(130, 400 , 50, 20);
+        registrarLbl.setLayout(null);
+        registrarLbl.setForeground(Color.white);
+        registrarLbl.addMouseListener(controller);
+        registrarLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        super.add(registrarLbl);
     }
     
     private void textFields()
@@ -119,7 +128,7 @@ public class LoginPanel extends JPanel{
                         AdminFrame  admin = new AdminFrame();
                         return 1;
                     case 2:
-                        UserFrame usuario = new UserFrame();
+                        UserFrame usuario = new UserFrame(modelo);
                         return 1;
                     case 3:
                         WorkerFrame worker = new WorkerFrame();
@@ -139,10 +148,10 @@ public class LoginPanel extends JPanel{
     }
     
     //Variables
-    LoginController controller; 
+    LoginController controller;
     //Swing components
     public JButton testbtn, registerbtn;
     private static JTextField usuarioTx;
     private static JPasswordField  contrasenaTx;
-    JLabel title, userLbl, passwordLbl;
+    public JLabel title, userLbl, passwordLbl, registrarLbl;
 }
