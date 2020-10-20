@@ -124,13 +124,13 @@ public class LoginPanel extends JPanel{
 //                ventana.dispose();
                 switch(modelo.getId_tipo())
                 {
-                    case 1:
+                    case 0:
                         AdminFrame  admin = new AdminFrame();
                         return 1;
-                    case 2:
+                    case 1:
                         UserFrame usuario = new UserFrame(modelo);
                         return 1;
-                    case 3:
+                    case 2:
                         WorkerFrame worker = new WorkerFrame();
                         return 1;
                     default:
