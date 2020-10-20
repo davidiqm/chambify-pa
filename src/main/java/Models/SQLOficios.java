@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class SQLOficios extends ConnectionBD{
     public boolean registrar(Oficios job) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "INSERT INTO oficios (nombre, categoria, precio) VALUES (?,?,?)";
         try {
@@ -30,7 +30,7 @@ public class SQLOficios extends ConnectionBD{
 
     public boolean modificar(Oficios job) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "UPDATE oficios SET nombre=?, categoria=?, precio=? WHERE id_oficio=?";
         try {
@@ -50,7 +50,7 @@ public class SQLOficios extends ConnectionBD{
 
     public boolean eliminar(Oficios job) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "DELETE FROM oficios WHERE id_oficio=?";
         try {
@@ -68,7 +68,7 @@ public class SQLOficios extends ConnectionBD{
     public int usuarioExistente(String usr) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "SELECT count(id_oficio) FROM oficios WHERE nombre = ?";
         try {

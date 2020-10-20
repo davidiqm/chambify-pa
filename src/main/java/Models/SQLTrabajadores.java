@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 public class SQLTrabajadores extends ConnectionBD{
     public boolean registrar(Trabajadores wrk) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "INSERT INTO trabajadores (usuario, nombre, oficio, edad, correo, id_tipo) VALUES (?,?,?,?,?,?)";
         try {
@@ -42,7 +42,7 @@ public class SQLTrabajadores extends ConnectionBD{
     
     public boolean modificar(Trabajadores wrk) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "UPDATE trabajadores SET usuario=?, nombre=?, oficio=?, edad=?, correo=?, id_tipo=? WHERE id_trabajador=?";
         try {
@@ -65,7 +65,7 @@ public class SQLTrabajadores extends ConnectionBD{
     
     public boolean eliminar(Trabajadores wrk) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "DELETE FROM trabajadores WHERE id_trabajador=?";
         try {
@@ -83,7 +83,7 @@ public class SQLTrabajadores extends ConnectionBD{
     public int usuarioExistente(String usr) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "SELECT count(id_trabajador) FROM trabajadores WHERE usuario = ?";
         try {

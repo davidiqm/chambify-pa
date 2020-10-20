@@ -8,7 +8,7 @@ public class SQLUsuarios extends ConnectionBD {
 
     public boolean registrar(Usuarios usr) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "INSERT INTO usuarios (usuario, contrasena, nombre, correo, id_tipo) VALUES (?,?,?,?,?)";
         try {
@@ -31,7 +31,7 @@ public class SQLUsuarios extends ConnectionBD {
     public int usuarioExistente(String usr) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
         String sql = "SELECT count(id_usuario) FROM usuarios WHERE usuario = ?";
         try {
@@ -63,9 +63,9 @@ public class SQLUsuarios extends ConnectionBD {
     public boolean login(Usuarios usr) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection con = getConexion();
+        Connection con = getConection();
 
-        String sql = "SELECT u.id_usuario, u.usuario, u.contrasena, u.nombre, u.id_tipo, t.nombre FROM usuarios AS u INNER JOIN tipo_usuario AS t ON u.id_tipo=t.codigo WHERE usuario = ?";
+        String sql = "SELECT u.id_usuario, u.usuario, u.contrasena, u.nombre, u.id_tipo, t.nombre, u.correo FROM usuarios AS u INNER JOIN tipo_usuario AS t ON u.id_tipo=t.codigo WHERE usuario = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, usr.getUsuario());
@@ -85,6 +85,7 @@ public class SQLUsuarios extends ConnectionBD {
                     usr.setNombre(rs.getString(4));
                     usr.setId_tipo(rs.getInt(5));
                     usr.setNombre_tipo(rs.getString(6));
+                    usr.setCorreo(rs.getString(7));
                     return true;
                 } else {
                     return false;

@@ -67,7 +67,7 @@ public class AdminPanelCategorias extends JPanel{
             PreparedStatement ps = null;
             ResultSet rs = null;
             ConnectionBD conexion = new ConnectionBD();
-            Connection cn = conexion.getConexion();
+            Connection cn = conexion.getConection();
             String sql = "SELECT nombre, categoria, precio FROM oficios";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -101,7 +101,7 @@ public class AdminPanelCategorias extends JPanel{
             PreparedStatement ps = null;
             ResultSet rs = null;
             ConnectionBD conexion = new ConnectionBD();
-            Connection cn = conexion.getConexion();
+            Connection cn = conexion.getConection();
             String sql = "SELECT nombre, categoria, precio FROM oficios " + where;
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();

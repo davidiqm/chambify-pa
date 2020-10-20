@@ -12,11 +12,11 @@
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
             <version>6.1.0.jre8</version>
-        </dependency>
+        </dependency> -->
         
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>

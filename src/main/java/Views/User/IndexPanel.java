@@ -95,4 +95,5 @@ public class IndexPanel extends JPanel {
     JLabel headerLbl, topicLbl, recommendLbl;
     JPanel headerPanel, topicPanel, sectionPanel;
     public CardPanel topicCard1, topicCard2, topicCard3, recommendCard1, recommendCard2, recommendCard3;
+    CardPanel[] cards = {topicCard1, topicCard2, topicCard3, recommendCard1, recommendCard2, recommendCard3};
 }
