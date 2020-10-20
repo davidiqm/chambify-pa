@@ -2,11 +2,7 @@ package Views.Login;
 
 import Controllers.AdminController;
 import Controllers.LoginController;
-import Models.Fecha;
-import Models.Hash;
-import Models.LimiteDeCaracteres;
-import Models.SQLUsuarios;
-import Models.Usuarios;
+import Models.*;
 import Views.Admin.AdminFrame;
 import Views.User.UserFrame;
 import Views.Workers.WorkerFrame;
@@ -76,7 +72,7 @@ public class LoginPanel extends JPanel{
 //        usuarioTx.setOpaque(false);
 //        usuarioTx.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         usuarioTx.setHorizontalAlignment(JTextField.CENTER);
-        usuarioTx.setDocument(new LimiteDeCaracteres(10));
+        //usuarioTx.setDocument(new LimiteDeCaracteres(10));
         super.add(usuarioTx);
         
         contrasenaTx = new JPasswordField();
@@ -93,20 +89,16 @@ public class LoginPanel extends JPanel{
         testbtn.setBounds(136, 379, 189, 25);
         testbtn.addActionListener(controller);
         super.add(testbtn);
-        
-//        registerbtn = new JButton("Registrarse");
-//        registerbtn.setBounds(150, 300, 150, 25);
-//        registerbtn.addActionListener(controller);
-//        super.add(registerbtn);
     }
     
     public int autentificar() {
         SQLUsuarios modeloSQL = new SQLUsuarios();
         Usuarios modelo = new Usuarios();
-        
+        Trabajadores[] jobers = new Trabajadores[6];
+
         Date date = new Date();
         DateFormat fechayhora = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        
+
         String contra = new String(contrasenaTx.getPassword());
         if(!usuarioTx.getText().equals("") && !contra.equals(""))
         {
@@ -115,17 +107,16 @@ public class LoginPanel extends JPanel{
             modelo.setContrasena(nuevaContra);
             modelo.setFecha(Fecha.fechaHoy());
             modelo.setHora(Fecha.horaHoy());
-            
+
+
+
             if(modeloSQL.login(modelo))
             {
-//                if(modelo.)
-//                menus = new InterfazNutrimorinMenus(modelo);
-//                menus.iniVentana();
-//                ventana.dispose();
+
                 switch(modelo.getId_tipo())
                 {
                     case 0:
-                        AdminFrame  admin = new AdminFrame();
+                        AdminFrame  admin = new AdminFrame(modelo);
                         return 1;
                     case 1:
                         UserFrame usuario = new UserFrame(modelo);

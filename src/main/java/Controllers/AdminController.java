@@ -8,6 +8,7 @@ package Controllers;
 import Views.Admin.*;
 import Views.Login.LoginFrame;
 
+import javax.swing.*;
 import java.awt.event.*;
 
 /**
@@ -88,8 +89,8 @@ public class AdminController implements ActionListener{
         if (e.getSource() == adminFrame.sideBar.workersBtn)
         {
             adminFrame.users.setVisible(false);
-            adminFrame.workers.setVisible(true);
             adminFrame.categorias.setVisible(false);
+            adminFrame.workers.setVisible(true);
             AdminPanelWorkers.agregarDatos();
         }
         if (e.getSource() == adminFrame.sideBar.categoriaBtn)
@@ -99,10 +100,20 @@ public class AdminController implements ActionListener{
             adminFrame.categorias.setVisible(true);
             AdminPanelCategorias.agregarDatos();
         }
+        if (e.getSource() == adminFrame.sideBar.logoutBtn) {
+            logoutDialog();
+        }
     }
-    
+
+    private void logoutDialog() {
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea salir del programa?", "Chambify", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+
+        if(option == 0)  System.exit(0);
+    }
+
     public AdminFrame adminFrame;
     public static AdminAddNewUserFrame addNewUserFrame;
     public static AdminAddNewWorkerFrame addNewWorkerFrame;
     public static AdminAddNewJobFrame addNewJobFrame;
+    private AdminHeader adminHeader;
 }
