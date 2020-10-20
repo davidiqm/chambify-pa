@@ -68,7 +68,7 @@ public class DetailsFrame {
         ageLbl.setLayout(null);
         detailFrame.add(ageLbl);
         
-        contactLbl = new JLabel("Contacto" + jober.getCorreo());
+        contactLbl = new JLabel("Contacto: " + jober.getCorreo());
         contactLbl.setBounds(10, 124, 300, 50);
         contactLbl.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         contactLbl.setLayout(null);

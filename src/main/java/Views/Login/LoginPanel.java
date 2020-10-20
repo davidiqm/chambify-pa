@@ -151,7 +151,7 @@ public class LoginPanel extends JPanel{
             ConnectionBD conexion = new ConnectionBD();
             Connection cn = conexion.getConection();
             Object[] datosFila = new Object[4];
-            String sql = "SELECT nombre, oficio, correo, edad FROM trabajadores";
+            String sql = "SELECT nombre, oficio, correo, edad FROM trabajadores LIMIT 6";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
 //            ResultSetMetaData rsMd = rs.getMetaData();
