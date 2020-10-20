@@ -78,9 +78,9 @@ public class CardPanel extends JPanel {
     
     //Vars
     UserController controller;
-    Trabajadores jobers;
+    public Trabajadores jobers;
     //Swing components
+    public JButton cardBtn;
     JLabel titleLbl, descriptionLbl;
     JPanel imagePanel;
-    JButton cardBtn;
 }

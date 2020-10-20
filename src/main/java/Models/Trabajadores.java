@@ -21,9 +21,15 @@ public class Trabajadores {
     private String hora;
     private String ultima_sesion;
 
-    public Trabajadores(String nombre, String oficio) {
+    public Trabajadores(String nombre, String oficio, String edad, String correo) {
         this.nombre = nombre;
         this.oficio = oficio;
+        this.edad = edad;
+        this.correo = correo;
+    }
+    
+    public Trabajadores() {
+        
     }
     
     public int getId_trabajador() {

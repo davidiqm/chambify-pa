@@ -150,8 +150,8 @@ public class LoginPanel extends JPanel{
             ResultSet rs = null;
             ConnectionBD conexion = new ConnectionBD();
             Connection cn = conexion.getConection();
-            Object[] datosFila = new Object[2];
-            String sql = "SELECT nombre, oficio FROM trabajadores";
+            Object[] datosFila = new Object[4];
+            String sql = "SELECT nombre, oficio, correo, edad FROM trabajadores";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
 //            ResultSetMetaData rsMd = rs.getMetaData();
@@ -159,14 +159,16 @@ public class LoginPanel extends JPanel{
             int counter = 0;
             
             while (rs.next()) {
-                for (int i = 0; i < 2; i++) {
+                for (int i = 0; i < 4; i++) {
                     datosFila[i] = rs.getObject(i + 1);
                 }  
                 
                 String nombre = datosFila[0].toString();
                 String oficio = datosFila[1].toString();
+                String correo = datosFila[2].toString();
+                String edad = datosFila[3].toString();
                 
-                jobers[counter] = new Trabajadores(nombre, oficio);
+                jobers[counter] = new Trabajadores(nombre, oficio, edad, correo);
 
                 counter++;
             }

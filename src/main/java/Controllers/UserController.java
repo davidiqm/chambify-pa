@@ -1,5 +1,6 @@
 package Controllers;
 
+import Views.User.DetailsFrame;
 import Views.User.UserFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,6 +33,30 @@ public class UserController implements ActionListener {
             userFrame.searchPanel.setVisible(false);
             userFrame.categoriesPanel.setVisible(false);
 	    userFrame.userPanel.setVisible(false);
+        }
+        
+        if (e.getSource() == userFrame.indexPanel.recommendCard1.cardBtn) {
+            DetailsFrame detailsFrame = new DetailsFrame(userFrame.indexPanel.recommendCard1.jobers);
+        }
+        
+        if (e.getSource() == userFrame.indexPanel.recommendCard2.cardBtn) {
+            DetailsFrame detailsFrame = new DetailsFrame(userFrame.indexPanel.recommendCard2.jobers);
+        }
+        
+        if (e.getSource() == userFrame.indexPanel.recommendCard3.cardBtn) {
+            DetailsFrame detailsFrame = new DetailsFrame(userFrame.indexPanel.recommendCard3.jobers);
+        }
+        
+        if (e.getSource() == userFrame.indexPanel.topicCard1.cardBtn) {
+            DetailsFrame detailsFrame = new DetailsFrame(userFrame.indexPanel.topicCard1.jobers);
+        }
+        
+        if (e.getSource() == userFrame.indexPanel.topicCard2.cardBtn) {
+            DetailsFrame detailsFrame = new DetailsFrame(userFrame.indexPanel.topicCard2.jobers);
+        }
+        
+        if (e.getSource() == userFrame.indexPanel.topicCard3.cardBtn) {
+            DetailsFrame detailsFrame = new DetailsFrame(userFrame.indexPanel.topicCard3.jobers);
         }
         
         if (e.getSource() == userFrame.searchBtn) {

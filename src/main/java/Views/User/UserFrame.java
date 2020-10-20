@@ -161,7 +161,7 @@ public class UserFrame {
     
     //Variables
     UserController controller;
-    Trabajadores[] jobers;
+    public Trabajadores[] jobers;
     //Swing components
     public JButton chambifyBtn, indexBtn, searchBtn, categoriesBtn, optionsBtn, userBtn, logoutBtn;
     public IndexPanel indexPanel;
