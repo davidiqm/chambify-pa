@@ -21,6 +21,11 @@ public class Trabajadores {
     private String hora;
     private String ultima_sesion;
 
+    public Trabajadores(String nombre, String oficio) {
+        this.nombre = nombre;
+        this.oficio = oficio;
+    }
+    
     public int getId_trabajador() {
         return id_trabajador;
     }

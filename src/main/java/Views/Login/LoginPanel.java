@@ -8,6 +8,11 @@ import Views.User.UserFrame;
 import Views.Workers.WorkerFrame;
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -108,8 +113,8 @@ public class LoginPanel extends JPanel{
             modelo.setContrasena(nuevaContra);
             modelo.setFecha(Fecha.fechaHoy());
             modelo.setHora(Fecha.horaHoy());
-
-
+            
+            jobers = initWorkers(jobers);
 
             if(modeloSQL.login(modelo))
             {
@@ -120,7 +125,7 @@ public class LoginPanel extends JPanel{
                         AdminFrame  admin = new AdminFrame(modelo);
                         return 1;
                     case 1:
-                        UserFrame usuario = new UserFrame(modelo);
+                        UserFrame usuario = new UserFrame(modelo, jobers);
                         return 1;
                     case 2:
                         WorkerFrame worker = new WorkerFrame();
@@ -137,6 +142,41 @@ public class LoginPanel extends JPanel{
             JOptionPane.showMessageDialog(null, "Campos vacios");
         }
         return 0;
+    }
+    
+    public Trabajadores[] initWorkers (Trabajadores[] jobers) {
+        try {
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            ConnectionBD conexion = new ConnectionBD();
+            Connection cn = conexion.getConection();
+            Object[] datosFila = new Object[2];
+            String sql = "SELECT nombre, oficio FROM trabajadores";
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+//            ResultSetMetaData rsMd = rs.getMetaData();
+//            int cantidadCol = rsMd.getColumnCount();
+            int counter = 0;
+            
+            while (rs.next()) {
+                for (int i = 0; i < 2; i++) {
+                    datosFila[i] = rs.getObject(i + 1);
+                }  
+                
+                String nombre = datosFila[0].toString();
+                String oficio = datosFila[1].toString();
+                
+                jobers[counter] = new Trabajadores(nombre, oficio);
+
+                counter++;
+            }
+            
+            return jobers;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al conectar " + ex);
+        }
+        
+        return null;
     }
     
     //Variables

@@ -1,6 +1,7 @@
 package Views.User;
 
 import Controllers.UserController;
+import Models.Trabajadores;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
@@ -12,7 +13,8 @@ import javax.swing.JPanel;
  */
 public class IndexPanel extends JPanel {
     
-    public IndexPanel(UserController controller) {
+    public IndexPanel(UserController controller, Trabajadores[] jobers) {
+        this.jobers = jobers;
         this.controller = controller;
         components();
     }
@@ -42,27 +44,27 @@ public class IndexPanel extends JPanel {
 //	sectionPanel.setVisible(true);
 //	super.add(sectionPanel);
         
-        topicCard1 = new CardPanel(controller);
+        topicCard1 = new CardPanel(controller, jobers[0]);
         topicCard1.setLocation(51, 143);
         super.add(topicCard1);
         
-        topicCard2 = new CardPanel(controller);
+        topicCard2 = new CardPanel(controller, jobers[1]);
         topicCard2.setLocation(391, 143);
         super.add(topicCard2);
         
-        topicCard3 = new CardPanel(controller);
+        topicCard3 = new CardPanel(controller, jobers[2]);
         topicCard3.setLocation(731, 143);
         super.add(topicCard3);
         
-        recommendCard1 = new CardPanel(controller);
+        recommendCard1 = new CardPanel(controller, jobers[3]);
         recommendCard1.setLocation(51, 438);
         super.add(recommendCard1);
         
-        recommendCard2 = new CardPanel(controller);
+        recommendCard2 = new CardPanel(controller, jobers[4]);
         recommendCard2.setLocation(391, 438);
         super.add(recommendCard2);
         
-        recommendCard3 = new CardPanel(controller);
+        recommendCard3 = new CardPanel(controller, jobers[5]);
         recommendCard3.setLocation(731, 438);
         super.add(recommendCard3);
     }
@@ -91,6 +93,7 @@ public class IndexPanel extends JPanel {
     
     //Vars
     UserController controller;
+    Trabajadores[] jobers;
     //Swing components
     JLabel headerLbl, topicLbl, recommendLbl;
     JPanel headerPanel, topicPanel, sectionPanel;
