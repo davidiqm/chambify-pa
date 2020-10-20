@@ -17,7 +17,7 @@ public class ConnectionBD {
 
     private static Connection conn;
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String db = "u897177112_admin";
+    private static String db = "u897177112_chambify_pa";
     public String url = "jdbc:mysql://92.249.44.52:3306/"+db;
     public static String user = "u897177112_admin";
     public static String password = "soyadminxD1";
