@@ -1,6 +1,8 @@
 package Views.User;
 
 import Controllers.UserController;
+import Models.Usuarios;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JPanel;
@@ -12,14 +14,16 @@ import javax.swing.JLabel;
  */
 public class UserPanel extends JPanel {
     
-    public UserPanel(UserController controller) {
+    public UserPanel(UserController controller, Usuarios mod) {
         this.controller = controller;
         components();
+		this.mod = mod;
+		userLbl.setText("¡Hola, " + mod.getNombre() + "!");
     }
     
     private void components() {
         panels();
-	labels();
+		labels();
     }
     
     private void panels() {
@@ -40,7 +44,7 @@ public class UserPanel extends JPanel {
 	headerLbl.setForeground(Color.white);
 	headerPanel.add(headerLbl);
     	
-	userLbl = new JLabel("¡Hola, usuario!");
+	userLbl = new JLabel();
 	userLbl.setBounds(51, 95, 150, 27);
 	userLbl.setFont(font);
 	userLbl.setForeground(Color.black);
@@ -52,4 +56,6 @@ public class UserPanel extends JPanel {
     //Swing components
     JLabel userLbl, headerLbl; 
     JPanel headerPanel;
+    public String usuario;
+    Usuarios mod;
 }

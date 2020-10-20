@@ -1,6 +1,8 @@
 package Views.User;
 
 import Controllers.UserController;
+import Models.Usuarios;
+
 import java.awt.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -14,7 +16,8 @@ import javax.swing.JPanel;
  */
 public class UserFrame {
     
-    public UserFrame() {
+    public UserFrame(Usuarios modelo) {
+        this.modelo = modelo;
         controller = new UserController(this);
         components();
     }
@@ -66,7 +69,7 @@ public class UserFrame {
         categoriesPanel.setVisible(false);
         userFrame.getContentPane().add(categoriesPanel);
 	
-	userPanel = new UserPanel(controller);
+	userPanel = new UserPanel(controller, modelo);
 	userPanel.setBounds(200, 0, 1080, 720);
 	userPanel.setLayout(null);
 	userPanel.setVisible(false);
@@ -165,4 +168,5 @@ public class UserFrame {
     JFrame userFrame;
     JLabel welcomeLbl;
     JPanel sidebar;
+    Usuarios modelo;
 }

@@ -5,11 +5,9 @@
  */
 package Controllers;
 
-import Views.Admin.AdminAddNewUserFrame;
-import Views.Admin.AdminAddNewWorkerFrame;
-import Views.Admin.AdminFrame;
-import Views.Admin.AdminPanelUsers;
-import Views.Admin.AdminPanelWorkers;
+import Views.Admin.*;
+import Views.Login.LoginFrame;
+
 import java.awt.event.*;
 
 /**
@@ -39,7 +37,7 @@ public class AdminController implements ActionListener{
             addNewWorkerFrame.initFrame();
         }
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -47,6 +45,7 @@ public class AdminController implements ActionListener{
         {
             agregarUsuario();
         }
+
         if (e.getSource() == adminFrame.workers.agregar)
         {
             agregarTrabajador();
