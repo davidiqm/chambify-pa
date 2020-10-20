@@ -47,14 +47,14 @@ public class LoginPanel extends JPanel{
         super.add(title);
         
         userLbl = new JLabel("Usuario");
-        userLbl.setBounds(130, 214, 50, 20);
+        userLbl.setBounds(130, 214, 100, 20);
         userLbl.setLayout(null);
         userLbl.setForeground(Color.white);
         userLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         super.add(userLbl);
         
         passwordLbl = new JLabel("Contraseña");
-        passwordLbl.setBounds(130, 282 , 50, 20);
+        passwordLbl.setBounds(130, 282 , 100, 20);
         passwordLbl.setLayout(null);
         passwordLbl.setForeground(Color.white);
         passwordLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));

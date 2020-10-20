@@ -1,7 +1,9 @@
 package Main;
 
+import Models.ConnectionBD;
 import Views.Admin.AdminFrame;
 import Views.Login.LoginFrame;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
@@ -16,8 +18,9 @@ public class Main {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-            LoginFrame login = new LoginFrame();
-
+            //LoginFrame login = new LoginFrame();
+            ConnectionBD conn = new ConnectionBD();
+            Connection con = conn.getConexion();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
