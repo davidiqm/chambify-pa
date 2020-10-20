@@ -69,6 +69,12 @@ public class AdminFrame {
         workers.setLayout(null);
         workers.setVisible(false);
         frame.getContentPane().add(workers);
+
+        categorias = new AdminPanelCategorias(controller);
+        categorias.setBounds(250, 60, 1030, 720);
+        categorias.setLayout(null);
+        categorias.setVisible(false);
+        frame.getContentPane().add(categorias);
     }
 
     public JFrame frame;
@@ -77,4 +83,5 @@ public class AdminFrame {
     private AdminHeader header;
     public AdminController controller;
     public AdminPanelWorkers workers;
+    public AdminPanelCategorias categorias;
 }

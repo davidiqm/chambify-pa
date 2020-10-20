@@ -1,49 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Views.Admin;
 
 import Controllers.AdminController;
 import Models.ConnectionBD;
 import Models.MiModelo;
-import java.awt.Cursor;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import javax.swing.*;
 
-/**
- *
- * @author Angel
- */
-public class AdminPanelWorkers extends JPanel{
-    public AdminPanelWorkers(AdminController controller)
+import javax.swing.*;
+import java.awt.*;
+import java.sql.*;
+
+public class AdminPanelCategorias extends JPanel{
+    public AdminPanelCategorias(AdminController controller)
     {
         this.controller = controller;
-        components();
+        complements();
+        buttons();
     }
-    
-    private void components()
+
+    private void complements()
     {
         table();
-        buttons();
         text();
         agregarDatos();
     }
-    
+
+    private void table()
+    {
+        barras = new JScrollPane(tabla);
+        modelo = new MiModelo();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Categoria");
+        modelo.addColumn("Precio");
+        tabla = new JTable(modelo);
+        JScrollPane scroll = new JScrollPane(tabla);
+        tabla.setBounds(10, 20, 1000, 300);
+        scroll.setBounds(10, 20, 1000, 300);
+        super.add(scroll);
+    }
+    private void text()
+    {
+        finTx = new JTextField();
+        finTx.setBounds(170, 325, 75, 25);
+        super.add(finTx);
+    }
     private void buttons()
     {
-        agregar = new JButton();
-        agregar.setText("CRUD");
-        agregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        agregar.setBounds(10, 325, 75, 25);
-        agregar.addActionListener(controller);
-        super.add(agregar);
-        
+        agregarUsuario = new JButton();
+        agregarUsuario.setText("CRUD");
+        agregarUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        agregarUsuario.setBounds(10, 320, 75, 25);
+        agregarUsuario.addActionListener(controller);
+        super.add(agregarUsuario);
+
         findBtn = new JButton();
         findBtn.setBounds(90, 325, 75, 25);
         findBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -51,31 +58,7 @@ public class AdminPanelWorkers extends JPanel{
         findBtn.addActionListener(controller);
         super.add(findBtn);
     }
-    
-    private void text()
-    {
-        finTx = new JTextField();
-        finTx.setBounds(170, 325, 75, 25);
-        super.add(finTx);
-    }
-    private void table()
-    {
-        barras = new JScrollPane(tabla);
-        modelo = new MiModelo();
-        modelo.addColumn("Usuario");
-        modelo.addColumn("Oficio");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Edad");
-        modelo.addColumn("Correo");
-        modelo.addColumn("Tipo de Usuario");
-        modelo.addColumn("Ultima_vez");
-        tabla = new JTable(modelo);
-        JScrollPane scroll = new JScrollPane(tabla);
-        tabla.setBounds(10, 20, 1000, 300);
-        scroll.setBounds(10, 20, 1000, 300);
-        super.add(scroll);
-    }
-    
+
     public static void agregarDatos() {
 
         try {
@@ -85,18 +68,15 @@ public class AdminPanelWorkers extends JPanel{
             ResultSet rs = null;
             ConnectionBD conexion = new ConnectionBD();
             Connection cn = conexion.getConexion();
-            String sql = "SELECT usuario, oficio, nombre, edad, correo, id_tipo, fecha FROM trabajadores";
+            String sql = "SELECT nombre, categoria, precio FROM oficios";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
             ResultSetMetaData rsMd = rs.getMetaData();
             int cantidadCol = rsMd.getColumnCount();
-            modelo.addColumn("Usuario");
-            modelo.addColumn("Oficio");
             modelo.addColumn("Nombre");
-            modelo.addColumn("Edad");
-            modelo.addColumn("Correo");
-            modelo.addColumn("Tipo de Usuario");
-            modelo.addColumn("Ultima_vez");
+            modelo.addColumn("Categoria");
+            modelo.addColumn("Precio");
+
             while (rs.next()) {
                 Object[] datosFila = new Object[cantidadCol];
                 for (int i = 0; i < cantidadCol; i++) {
@@ -108,13 +88,12 @@ public class AdminPanelWorkers extends JPanel{
             JOptionPane.showMessageDialog(null, "Error al conectar " + ex);
         }
     }
-    
-    public static void buscarTrabajador() {
+    public static void buscarOficio() {
         String campo = finTx.getText();
         String where = "";
 
         if (!"".equals(campo)) {
-            where = "WHERE usuario = '" + campo + "'";
+            where = "WHERE nombre = '" + campo + "'";
         }
         try {
             modelo = new MiModelo();
@@ -123,18 +102,14 @@ public class AdminPanelWorkers extends JPanel{
             ResultSet rs = null;
             ConnectionBD conexion = new ConnectionBD();
             Connection cn = conexion.getConexion();
-            String sql = "SELECT usuario, oficio, nombre, edad, correo, id_tipo, fecha FROM trabajadores " + where;
+            String sql = "SELECT nombre, categoria, precio FROM oficios " + where;
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
             ResultSetMetaData rsMd = rs.getMetaData();
             int cantidadCol = rsMd.getColumnCount();
-            modelo.addColumn("Usuario");
-            modelo.addColumn("Oficio");
             modelo.addColumn("Nombre");
-            modelo.addColumn("Edad");
-            modelo.addColumn("Correo");
-            modelo.addColumn("Tipo de Usuario");
-            modelo.addColumn("Ultima_vez");
+            modelo.addColumn("Categoria");
+            modelo.addColumn("Precio");
             while (rs.next()) {
                 Object[] datosFila = new Object[cantidadCol];
                 for (int i = 0; i < cantidadCol; i++) {
@@ -146,10 +121,10 @@ public class AdminPanelWorkers extends JPanel{
             JOptionPane.showMessageDialog(null, "Error al conectar" + ex);
         }
     }
-    public AdminController controller;
     private JScrollPane barras;
     private static MiModelo modelo;
     private static JTable tabla;
+    public JButton agregarUsuario, findBtn;
     private static JTextField finTx;
-    public static JButton agregar, findBtn;
+    AdminController controller;
 }
