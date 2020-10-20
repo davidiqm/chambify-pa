@@ -69,7 +69,7 @@ public class AdminPanelUsers extends JPanel{
             PreparedStatement ps = null;
             ResultSet rs = null;
             ConnectionBD conexion = new ConnectionBD();
-            Connection cn = conexion.getConexion();
+            Connection cn = conexion.getConection();
             String sql = "SELECT usuario, contrasena, nombre, correo, id_tipo FROM usuarios";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();

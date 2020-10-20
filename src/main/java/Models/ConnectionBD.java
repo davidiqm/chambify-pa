@@ -27,7 +27,7 @@ public class ConnectionBD {
 //    private static final String url = "jdbc:sqlserver://sql5059.site4now.net\\SQLEXPRESS:1433;databaseName=DB_A68F20_chambipa;"
 //                    + "user=DB_A68F20_chambipa_admin;password=raizdemenos1";
     
-    public Connection getConexion()
+    public Connection getConection()
     {
         conn = null;
         try

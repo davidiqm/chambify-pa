@@ -73,6 +73,7 @@ public class LoginPanel extends JPanel{
 //        usuarioTx.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         usuarioTx.setHorizontalAlignment(JTextField.CENTER);
         //usuarioTx.setDocument(new LimiteDeCaracteres(10));
+        usuarioTx.setDocument(new LimiteDeCaracteres(20));
         super.add(usuarioTx);
         
         contrasenaTx = new JPasswordField();
@@ -80,7 +81,7 @@ public class LoginPanel extends JPanel{
 //        contrasenaTx.setOpaque(false);
 //        contrasenaTx.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         contrasenaTx.setHorizontalAlignment(JTextField.CENTER);
-        contrasenaTx.setDocument(new LimiteDeCaracteres(10));
+        contrasenaTx.setDocument(new LimiteDeCaracteres(20));
         super.add(contrasenaTx);
     }
     

@@ -16,13 +16,13 @@ public class UserPanel extends JPanel {
     
     public UserPanel(UserController controller, Usuarios mod) {
         this.controller = controller;
+        this.mod = mod;
         components();
-		userLbl.setText("¡Hola, " + mod.getNombre() + "!");
     }
     
     private void components() {
         panels();
-		labels();
+        labels();
     }
     
     private void panels() {
@@ -36,6 +36,7 @@ public class UserPanel extends JPanel {
     
     private void labels() {
 	Font font = new Font("Segoe UI", Font.PLAIN, 20);
+	Font fontBody = new Font("Segoe UI", Font.PLAIN, 16);
 	
 	headerLbl = new JLabel("Cuenta");
 	headerLbl.setBounds(27, 22, 100, 27);
@@ -43,17 +44,41 @@ public class UserPanel extends JPanel {
 	headerLbl.setForeground(Color.white);
 	headerPanel.add(headerLbl);
     	
-	userLbl = new JLabel();
-	userLbl.setBounds(51, 95, 150, 27);
+	userLbl = new JLabel("¡Hola, " + mod.getNombre() + "!");
+	userLbl.setBounds(51, 95, 200, 27);
 	userLbl.setFont(font);
 	userLbl.setForeground(Color.black);
 	super.add(userLbl);
+        
+        personalInfoLbl = new JLabel("Datos Personales");
+        personalInfoLbl.setBounds(51, 140, 400, 27);
+	personalInfoLbl.setFont(new Font("Segoe UI", Font.BOLD, 16));
+	personalInfoLbl.setForeground(Color.black);
+	super.add(personalInfoLbl);
+        
+        userInfoLbl = new JLabel("Usuario: " + mod.getUsuario());
+        userInfoLbl.setBounds(51, 184, 400, 27);
+	userInfoLbl.setFont(fontBody);
+	userInfoLbl.setForeground(Color.black);
+	super.add(userInfoLbl);
+        
+        nameInfoLbl = new JLabel("Nombre: " + mod.getNombre());
+        nameInfoLbl.setBounds(51, 231, 400, 27);
+	nameInfoLbl.setFont(fontBody);
+	nameInfoLbl.setForeground(Color.black);
+	super.add(nameInfoLbl);
+        
+        addressInfoLbl = new JLabel("Correo electrónico: " + mod.getCorreo());
+        addressInfoLbl.setBounds(51, 278, 400, 27);
+	addressInfoLbl.setFont(fontBody);
+	addressInfoLbl.setForeground(Color.black);
+	super.add(addressInfoLbl);
     }
 
     //Vars
     UserController controller;
     //Swing components
-    JLabel userLbl, headerLbl; 
+    JLabel userLbl, headerLbl, personalInfoLbl, userInfoLbl, nameInfoLbl, addressInfoLbl; 
     JPanel headerPanel;
     public String usuario;
     Usuarios mod;

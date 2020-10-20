@@ -84,7 +84,7 @@ public class AdminPanelWorkers extends JPanel{
             PreparedStatement ps = null;
             ResultSet rs = null;
             ConnectionBD conexion = new ConnectionBD();
-            Connection cn = conexion.getConexion();
+            Connection cn = conexion.getConection();
             String sql = "SELECT usuario, oficio, nombre, edad, correo, id_tipo, fecha FROM trabajadores";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -122,7 +122,7 @@ public class AdminPanelWorkers extends JPanel{
             PreparedStatement ps = null;
             ResultSet rs = null;
             ConnectionBD conexion = new ConnectionBD();
-            Connection cn = conexion.getConexion();
+            Connection cn = conexion.getConection();
             String sql = "SELECT usuario, oficio, nombre, edad, correo, id_tipo, fecha FROM trabajadores " + where;
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
