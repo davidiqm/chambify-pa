@@ -61,8 +61,8 @@ public class LoginPanel extends JPanel{
         passwordLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         super.add(passwordLbl);
 
-        registrarLbl = new JLabel("aquí.");
-        registrarLbl.setBounds(130, 400 , 50, 20);
+        registrarLbl = new JLabel("Registrate aquí");
+        registrarLbl.setBounds(187, 420 , 200, 20);
         registrarLbl.setLayout(null);
         registrarLbl.setForeground(Color.white);
         registrarLbl.addMouseListener(controller);
