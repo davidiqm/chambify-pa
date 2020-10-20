@@ -8,6 +8,8 @@ package Views.Admin;
 import Controllers.AdminController;
 import Models.ConnectionBD;
 import Models.MiModelo;
+import Models.TextPrompt;
+
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,8 +48,8 @@ public class AdminPanelUsers extends JPanel{
         modelo.addColumn("Tipo de Usuario");
         tabla = new JTable(modelo);
         JScrollPane scroll = new JScrollPane(tabla);
-        tabla.setBounds(10, 20, 1000, 300);
-        scroll.setBounds(10, 20, 1000, 300);
+        tabla.setBounds(10, 20, 1000, 550);
+        scroll.setBounds(10, 20, 1000, 550);
         super.add(scroll);
     }
     
@@ -56,7 +58,7 @@ public class AdminPanelUsers extends JPanel{
         agregarUsuario = new JButton();
         agregarUsuario.setText("Agregar");
         agregarUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        agregarUsuario.setBounds(10, 320, 75, 25);
+        agregarUsuario.setBounds(10, 570, 75, 25);
         agregarUsuario.addActionListener(controller);
         super.add(agregarUsuario);
     }
