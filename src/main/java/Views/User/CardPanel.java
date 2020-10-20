@@ -1,6 +1,7 @@
 package Views.User;
 
 import Controllers.UserController;
+import Models.Trabajadores;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -15,8 +16,14 @@ import javax.swing.JPanel;
  */
 public class CardPanel extends JPanel {
     
-    public CardPanel(UserController controller) {
+//    public CardPanel(UserController controller) {
+//        this.controller = controller;
+//        components();
+//    }
+    
+    public CardPanel(UserController controller, Trabajadores jobers) {
         this.controller = controller;
+        this.jobers = jobers;
         components();
     }
     
@@ -41,13 +48,13 @@ public class CardPanel extends JPanel {
     }
     
     private void labels() {
-        titleLbl = new JLabel("Titulo card");
+        titleLbl = new JLabel(jobers.getOficio());
         titleLbl.setBounds(12, 130, 256, 30);
         titleLbl.setFont(new Font("Segoe UI", Font.PLAIN, 22));
         titleLbl.setLayout(null);
         this.add(titleLbl);
         
-        descriptionLbl = new JLabel("Descripcion card");
+        descriptionLbl = new JLabel(jobers.getNombre());
         descriptionLbl.setBounds(12, 168, 256, 50);
         descriptionLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         descriptionLbl.setLayout(null);
@@ -71,6 +78,7 @@ public class CardPanel extends JPanel {
     
     //Vars
     UserController controller;
+    Trabajadores jobers;
     //Swing components
     JLabel titleLbl, descriptionLbl;
     JPanel imagePanel;

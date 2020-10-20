@@ -1,6 +1,7 @@
 package Views.User;
 
 import Controllers.UserController;
+import Models.Trabajadores;
 import Models.Usuarios;
 
 import java.awt.*;
@@ -16,8 +17,9 @@ import javax.swing.JPanel;
  */
 public class UserFrame {
     
-    public UserFrame(Usuarios modelo) {
+    public UserFrame(Usuarios modelo, Trabajadores[] jobers) {
         this.modelo = modelo;
+        this.jobers = jobers;
         controller = new UserController(this);
         components();
     }
@@ -51,7 +53,7 @@ public class UserFrame {
         sidebar.setVisible(true);
         userFrame.getContentPane().add(sidebar);
         
-        indexPanel = new IndexPanel(controller);
+        indexPanel = new IndexPanel(controller, jobers);
         indexPanel.setBounds(200, 0, 1080, 720);
         indexPanel.setLayout(null);
         indexPanel.setVisible(true);
@@ -159,6 +161,7 @@ public class UserFrame {
     
     //Variables
     UserController controller;
+    Trabajadores[] jobers;
     //Swing components
     public JButton chambifyBtn, indexBtn, searchBtn, categoriesBtn, optionsBtn, userBtn, logoutBtn;
     public IndexPanel indexPanel;
