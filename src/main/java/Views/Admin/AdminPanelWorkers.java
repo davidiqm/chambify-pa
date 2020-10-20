@@ -8,7 +8,9 @@ package Views.Admin;
 import Controllers.AdminController;
 import Models.ConnectionBD;
 import Models.MiModelo;
-import java.awt.Cursor;
+import Models.TextPrompt;
+
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,12 +42,12 @@ public class AdminPanelWorkers extends JPanel{
         agregar = new JButton();
         agregar.setText("CRUD");
         agregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        agregar.setBounds(10, 325, 75, 25);
+        agregar.setBounds(10, 570, 75, 25);
         agregar.addActionListener(controller);
         super.add(agregar);
         
         findBtn = new JButton();
-        findBtn.setBounds(90, 325, 75, 25);
+        findBtn.setBounds(90, 570, 75, 25);
         findBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         findBtn.setText("Buscar");
         findBtn.addActionListener(controller);
@@ -55,8 +57,11 @@ public class AdminPanelWorkers extends JPanel{
     private void text()
     {
         finTx = new JTextField();
-        finTx.setBounds(170, 325, 75, 25);
+        finTx.setBounds(170, 570, 75, 25);
         super.add(finTx);
+        finTp = new TextPrompt("Usuario", finTx);
+        finTp.changeAlpha(0.75f);
+        finTp.changeStyle(Font.ITALIC);
     }
     private void table()
     {
@@ -71,8 +76,8 @@ public class AdminPanelWorkers extends JPanel{
         modelo.addColumn("Ultima_vez");
         tabla = new JTable(modelo);
         JScrollPane scroll = new JScrollPane(tabla);
-        tabla.setBounds(10, 20, 1000, 300);
-        scroll.setBounds(10, 20, 1000, 300);
+        tabla.setBounds(10, 20, 1000, 550);
+        scroll.setBounds(10, 20, 1000, 550);
         super.add(scroll);
     }
     
@@ -152,4 +157,5 @@ public class AdminPanelWorkers extends JPanel{
     private static JTable tabla;
     private static JTextField finTx;
     public static JButton agregar, findBtn;
+    private TextPrompt finTp;
 }

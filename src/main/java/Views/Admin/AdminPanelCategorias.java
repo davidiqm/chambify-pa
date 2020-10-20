@@ -3,6 +3,7 @@ package Views.Admin;
 import Controllers.AdminController;
 import Models.ConnectionBD;
 import Models.MiModelo;
+import Models.TextPrompt;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,27 +33,30 @@ public class AdminPanelCategorias extends JPanel{
         modelo.addColumn("Precio");
         tabla = new JTable(modelo);
         JScrollPane scroll = new JScrollPane(tabla);
-        tabla.setBounds(10, 20, 1000, 300);
-        scroll.setBounds(10, 20, 1000, 300);
+        tabla.setBounds(10, 20, 1000, 550);
+        scroll.setBounds(10, 20, 1000, 550);
         super.add(scroll);
     }
     private void text()
     {
         finTx = new JTextField();
-        finTx.setBounds(170, 325, 75, 25);
+        finTx.setBounds(170, 570, 75, 25);
         super.add(finTx);
+        finTp = new TextPrompt("Oficio", finTx);
+        finTp.changeAlpha(0.75f);
+        finTp.changeStyle(Font.ITALIC);
     }
     private void buttons()
     {
         agregarUsuario = new JButton();
         agregarUsuario.setText("CRUD");
         agregarUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        agregarUsuario.setBounds(10, 320, 75, 25);
+        agregarUsuario.setBounds(10, 570, 75, 25);
         agregarUsuario.addActionListener(controller);
         super.add(agregarUsuario);
 
         findBtn = new JButton();
-        findBtn.setBounds(90, 325, 75, 25);
+        findBtn.setBounds(90, 570, 75, 25);
         findBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         findBtn.setText("Buscar");
         findBtn.addActionListener(controller);
@@ -127,4 +131,5 @@ public class AdminPanelCategorias extends JPanel{
     public JButton agregarUsuario, findBtn;
     private static JTextField finTx;
     AdminController controller;
+    private TextPrompt finTp;
 }
