@@ -38,6 +38,15 @@ public class AdminController implements ActionListener{
         }
     }
 
+    private void agregarOficio()
+    {
+        if (addNewJobFrame == null)
+        {
+            addNewJobFrame = new AdminAddNewJobFrame();
+            addNewJobFrame.initFrame();
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -50,9 +59,18 @@ public class AdminController implements ActionListener{
         {
             agregarTrabajador();
         }
+
+        if(e.getSource() == adminFrame.categorias.agregarUsuario)
+        {
+            agregarOficio();
+        }
         if (e.getSource() == adminFrame.workers.findBtn)
         {
             AdminPanelWorkers.buscarTrabajador();
+        }
+        if (e.getSource() == adminFrame.categorias.findBtn)
+        {
+            AdminPanelCategorias.buscarOficio();
         }
         if (e.getSource() == adminFrame.sideBar.chambifyBtn)
         {
@@ -64,17 +82,27 @@ public class AdminController implements ActionListener{
         {
             adminFrame.users.setVisible(true);
             adminFrame.workers.setVisible(false);
+            adminFrame.categorias.setVisible(false);
             AdminPanelUsers.agregarDatos();
         }
         if (e.getSource() == adminFrame.sideBar.workersBtn)
         {
             adminFrame.users.setVisible(false);
             adminFrame.workers.setVisible(true);
+            adminFrame.categorias.setVisible(false);
             AdminPanelWorkers.agregarDatos();
+        }
+        if (e.getSource() == adminFrame.sideBar.categoriaBtn)
+        {
+            adminFrame.users.setVisible(false);
+            adminFrame.workers.setVisible(false);
+            adminFrame.categorias.setVisible(true);
+            AdminPanelCategorias.agregarDatos();
         }
     }
     
     public AdminFrame adminFrame;
     public static AdminAddNewUserFrame addNewUserFrame;
     public static AdminAddNewWorkerFrame addNewWorkerFrame;
+    public static AdminAddNewJobFrame addNewJobFrame;
 }

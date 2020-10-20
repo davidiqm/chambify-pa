@@ -73,7 +73,19 @@ public class AdminSideBar extends JPanel{
         workersBtn.setContentAreaFilled(false);
         workersBtn.addActionListener(controller);
         super.add(workersBtn);
-        
+
+        categoriaBtn = new JButton("Oficios");
+        categoriaBtn.setFont(font);
+        categoriaBtn.setBounds(20, 330, 200, 52);
+        //categoriesBtn.setBackground(Color.WHITE);
+        categoriaBtn.setForeground(Color.WHITE);
+        categoriaBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        categoriaBtn.setBorderPainted(false);
+        categoriaBtn.setFocusPainted(false);
+        categoriaBtn.setContentAreaFilled(false);
+        categoriaBtn.addActionListener(controller);
+        super.add(categoriaBtn);
+
         chambifyBtn = new JButton("Chambify");
         chambifyBtn.setFont(titleFont);
         chambifyBtn.setBounds(20, 128, 200, 52);
@@ -93,7 +105,7 @@ public class AdminSideBar extends JPanel{
 //        super.add(title);
 //    }
     
-    public JButton usersBtn, workersBtn, chambifyBtn;
+    public JButton usersBtn, workersBtn, chambifyBtn, categoriaBtn;
     private JLabel title;
     public AdminController controller;
 }
